@@ -51,5 +51,8 @@
 - Vamos a poner facets al proyecto para que todo sea mas facil: project > properties > project facets > convert > (Solo le he añadido el de Web)
 
 
-- Es un buen inicio para ir subiendo los archivos al github, voy a ir haciendo una rama
+- Es un buen inicio para ir subiendo los archivos al github, voy a ir haciendo una rama (echo)
+- Archivos iniciales subidos con git (gitkraken)
+- Le voy a ir haciendo el tomcat para deploy (Lo hace eclipse solo)
+- Le he añadido el JPA facet (me sale un error de diferencia en java con un facet, hay q verlo)
   
