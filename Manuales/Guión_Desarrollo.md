@@ -51,5 +51,5 @@
 - Vamos a poner facets al proyecto para que todo sea mas facil: project > properties > project facets > convert > (Solo le he añadido el de Web)
 
 
-- Es un buen inicio para ir subiendo los archivos al github:
+- Es un buen inicio para ir subiendo los archivos al github, voy a ir haciendo una rama
   
