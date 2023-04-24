@@ -55,4 +55,5 @@
 - Archivos iniciales subidos con git (gitkraken)
 - Le voy a ir haciendo el tomcat para deploy (Lo hace eclipse solo)
 - Le he añadido el JPA facet (me sale un error de diferencia en java con un facet, hay q verlo)
+- Commit con los cambios de propiedades (todos los errores arreglados menos el de jpa [tengo q mirar como decirle que ya tengo la conexión hecha])
   
