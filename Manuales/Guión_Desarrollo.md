@@ -20,40 +20,8 @@
 
 ## En el IDE (Eclipse)
 
-- Creamos un proyecto maven en un nuevo workspace sin arquetipo
+- Creamos un proyecto SpringBook starter (Maven) en eclipse. (No he podido guarlas las propiedades)
 
-- En el proyecto > propiedades > Java Compiler indicarle que usamos un jdk17 y la ruta de ese jdk
-
-- Vamos a usar Spring, para ellos añadimos las dependencias en el pom.xml de nuestro proyecto.
-
-- Abrimos una terminal proyecto > show in > terminal
-
-- Ahora comprobamos que todo esté bien instalado con un `mvn clean compile package`.
-
-- He añadido la dependencia de Hibernate
-
-- He creado la el archivo de configuracion de Hibernate en resources (paso configuracion)
-    ```
-    <hibernate-configuration>
-   <session-factory name="">
-    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost/BDbooking</property>
-    <property name="hibernate.default_schema">BDbooking</property>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">password</property>
-    <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.format_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">create</property>
-   </session-factory>
-  </hibernate-configuration>
-    ```  
-- Vamos a poner facets al proyecto para que todo sea mas facil: project > properties > project facets > convert > (Solo le he añadido el de Web)
-
-
-- Es un buen inicio para ir subiendo los archivos al github, voy a ir haciendo una rama (echo)
-- Archivos iniciales subidos con git (gitkraken)
-- Le voy a ir haciendo el tomcat para deploy (Lo hace eclipse solo)
-- Le he añadido el JPA facet (me sale un error de diferencia en java con un facet, hay q verlo)
-- Commit con los cambios de propiedades (todos los errores arreglados menos el de jpa [tengo q mirar como decirle que ya tengo la conexión hecha])
+- He hecho la clase usuario y he empezado con su DAOP y mapping. He cambiado el GetMapping a un PostMapping.
+- 
   
