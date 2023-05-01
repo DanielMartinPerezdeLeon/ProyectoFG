@@ -25,4 +25,6 @@
 - He hecho la clase usuario y he empezado con su DAOP y mapping. He cambiado el GetMapping a un PostMapping.
 
 - He arreglado errores que habia y he deployeado la aplicación, consiguiendo que salga en navegador
+
+- Ahora que hemos creado el primer html (JSP) para la web, vamos a meter primefaces, tambien usamos primefaces/designer para diseñar la pagina
   
