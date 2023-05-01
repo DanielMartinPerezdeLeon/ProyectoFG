@@ -38,4 +38,5 @@
 
 - El iniciar sesion al menos ya comprueba si ese usuario existe(solo por identificacion, vamos a hacer el registro)
 
+-He iniciado la pagina de registro y he mergeado la branch 1 al main
   
