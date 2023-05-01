@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	 lang="es">
+
+<head>
+<title>Booking WebApp: Inicio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Daniel MartÃ­n PÃ©rez de LeÃ³n">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+</head>
+
+
+
+
+
+<body>
+
+	<header>
+		<nav class="navbar navbar-dark bg-primary">
+			<h2 class="navbar-brand">Booking WebApp</h2>
+
+		</nav>
+	</header>
+
+
+	<div class="pt-5">
+		<h1 class="text-center">Booking WebAPP</h1>
+		<br /> <br />
+		<h2 class="text-center">Iniciar Sesion</h2>
+		<br />
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-5 mx-auto">
+					<div class="card card-body">
+						<form action="#" id="submitForm" th:action="@{/iniciar_sesion}" th:object="${usuario}" method="post">
+							<div class="form-group required">
+								<br /> 
+								<label for="identificador"> Introduzca su usuario: </label> 
+								<input id="identificacion" type="text" class="form-control text-lowercase" required name="identificacion" th:field="*{identificacion}">
+							</div>
+							<br />
+							<div class="form-group required">
+								<label class="d-flex flex-row align-items-center"
+									for="contrasena"> Introduzca su contraseña: </label> 
+									<input id="contrasena" type="password" class="form-control" required name="contrasena" th:field="*{contrasena}">
+							</div>
+							<br /> <br />
+
+							<div class="text-center">
+								<button class="btn btn-primary" type="submit">Iniciar Sesion</button>
+								<br /> <br />
+							</div>
+
+						</form>
+
+
+						<a href="/registrarse" class="text-center"> Registrar nuevo usuario </a>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<footer class="bg-dark text-center text-white fixed-bottom">
+
+		<p class="text-white text-center">Proyecto FG DAM 2023 Daniel Martí­n Pérez de León</p>
+		<p class="text-white text-center"> <a href="https://github.com/DanielMartinPerezdeLeon/ProyectoFG">GitHub</a></p>
+		<p class="text-white text-center ">Email: damarpele@gmail.com </p>
+
+	</footer>
+
+
+
+</body>
+
+
+
+
+
+
+
+</html>
