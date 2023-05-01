@@ -26,5 +26,5 @@
 
 - He arreglado errores que habia y he deployeado la aplicación, consiguiendo que salga en navegador
 
-- Ahora que hemos creado el primer html (JSP) para la web, vamos a meter primefaces, tambien usamos primefaces/designer para diseñar la pagina
+- Ahora que hemos creado el primer html (JSP) para la web, vamos a meter primefaces, tambien usamos primefaces/designer para diseñar la pagina. En un principio usaremos el diseñador con Bootstrap dark, ya que es lo que he usado antes
   
