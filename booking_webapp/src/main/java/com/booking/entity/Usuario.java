@@ -1,4 +1,7 @@
-package entity;
+package com.booking.entity;
+
+import java.util.Arrays;
+import java.util.Base64;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -31,20 +34,27 @@ public class Usuario {
 	
 	@Column(name = "contrasena")
 	@JsonProperty("contrasena")
-	private Byte[] contrasenaCodificada;	//Contraseña encriptada para no mostrar la original
+	private byte[] contrasena;	//Contraseña encriptada para no mostrar la original
 	
 	
-	Usuario(){
+	public Usuario(){
 		
 	}
 	
-	Usuario(String nombre, String apellido, String identificacion, Byte[] contrasena){
+	public Usuario(String nombre, String apellido, String identificacion, String contrasena){
 		super();
 		this.nombre=nombre;
 		this.apellidos=apellido;
 		this.identificacion=identificacion;
-		this.contrasenaCodificada=contrasena;
+		this.contrasena=Base64.getEncoder().encode(contrasena.getBytes());
 	}
+	
+	public Usuario(String identificacion, String contrasena) {
+		super();
+		this.identificacion=identificacion;
+		this.contrasena=Base64.getEncoder().encode(contrasena.getBytes());
+		
+	};
 
 	public Long getId() {
 		return id;
@@ -62,6 +72,14 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
+	public byte[] getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(byte[] contrasena) {
+		this.contrasena = contrasena;
+	}
+
 	public String getApellidos() {
 		return apellidos;
 	}
@@ -76,6 +94,12 @@ public class Usuario {
 
 	public void setIdentificacion(String identificacion) {
 		this.identificacion = identificacion;
+	}
+
+	@Override
+	public String toString() {
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", identificacion="
+				+ identificacion + ", contrasenaCodificada=" + Arrays.toString(contrasena) + "]";
 	}
 	
 	

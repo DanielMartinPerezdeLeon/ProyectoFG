@@ -1,20 +1,20 @@
-package service;
+package com.booking.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import entity.Usuario;
-import repository.UsuarioRepository;
+import com.booking.entity.Usuario;
+import com.booking.repository.UsuarioRepository;
 
 @Service
-public class UsuarioService {
+public class UsuarioServiceImpl implements UsuarioService{
 	@Autowired
 	private final UsuarioRepository repository;
 	
 	
-	public UsuarioService(UsuarioRepository repository) {
+	public UsuarioServiceImpl(UsuarioRepository repository) {
 		this.repository=repository;
 	}
 	
