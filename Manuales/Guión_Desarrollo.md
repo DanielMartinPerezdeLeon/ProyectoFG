@@ -36,4 +36,6 @@
 
 - He creado el formulario de inicio de sesion dentro del index (de momento no funciona)
 
+- El iniciar sesion al menos ya comprueba si ese usuario existe(solo por identificacion, vamos a hacer el registro)
+
   
