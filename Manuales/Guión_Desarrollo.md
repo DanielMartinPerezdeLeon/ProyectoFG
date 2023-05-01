@@ -28,12 +28,12 @@
 
 - Ahora que hemos creado el primer html (JSP) para la web, vamos a meter primefaces, tambien usamos primefaces/designer para diseñar la pagina. En un principio usaremos el diseñador con Bootstrap dark, ya que es lo que he usado antes.
 
--He ajustado los colores, diseño que quiero, ahora solo copiamos los html y los pegamos a la página
+- He ajustado los colores, diseño que quiero, ahora solo copiamos los html y los pegamos a la página
 
--Es inviable usar primefaces a estas alturas, directamente usaremos boostrap
+- Es inviable usar primefaces a estas alturas, directamente usaremos boostrap
 
--He tenido que mover TODOS los paquetes dentro de donde estaba el de SpringApplication, si no, no los detecta al movernos con get/post
+- He tenido que mover TODOS los paquetes dentro de donde estaba el de SpringApplication, si no, no los detecta al movernos con get/post
 
--He creado el formulario de inicio de sesion dentro del index (de momento no funciona)
+- He creado el formulario de inicio de sesion dentro del index (de momento no funciona)
 
   
