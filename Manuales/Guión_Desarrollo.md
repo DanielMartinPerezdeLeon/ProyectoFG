@@ -17,7 +17,8 @@
   - name: BDbooking
   - character set: UTF8
   - Lo demás default.
-
+  
+- (Opcional pero ayuda) Instalarse en Eclipse
 ## En el IDE (Eclipse)
 
 - Creamos un proyecto SpringBook starter (Maven) en eclipse. (No he podido guarlas las propiedades)
@@ -38,5 +39,6 @@
 
 - El iniciar sesion al menos ya comprueba si ese usuario existe(solo por identificacion, vamos a hacer el registro)
 
--He iniciado la pagina de registro y he mergeado la branch 1 al main
-  
+- He iniciado la pagina de registro y he mergeado la branch 1 al main
+
+- Importante mencionar que ya no se usa JSP, los html dinámicos los he convertido a Thymeleaf, que es mucho más potente y utilizado actualmente que JSP
