@@ -42,3 +42,5 @@
 - He iniciado la pagina de registro y he mergeado la branch 1 al main
 
 - Importante mencionar que ya no se usa JSP, los html dinámicos los he convertido a Thymeleaf, que es mucho más potente y utilizado actualmente que JSP
+
+- Recordar meter SPRING-DOCKER EN EL POM
