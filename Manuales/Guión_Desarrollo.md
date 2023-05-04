@@ -18,7 +18,7 @@
   - character set: UTF8
   - Lo demás default.
   
-- (Opcional pero ayuda) Instalarse en Eclipse
+- (Opcional pero ayuda) Instalarse en Eclipse los plugins de spring initializr, maven, sonarlint, tomca
 ## En el IDE (Eclipse)
 
 - Creamos un proyecto SpringBook starter (Maven) en eclipse. (No he podido guarlas las propiedades)
