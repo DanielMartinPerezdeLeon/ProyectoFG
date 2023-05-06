@@ -44,3 +44,5 @@
 - Importante mencionar que ya no se usa JSP, los html dinámicos los he convertido a Thymeleaf, que es mucho más potente y utilizado actualmente que JSP
 
 - Recordar meter SPRING-DOCKER EN EL POM (https://openwebinars.net/academia/aprende/desplegar-app-spring-boot-docker/)
+
+- https://mdbootstrap.com/ (Muy bien para ver como va a quedar)
