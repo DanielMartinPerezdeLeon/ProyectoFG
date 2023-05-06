@@ -5,8 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.booking.entity.Usuario;
+
+
 
 
 
@@ -19,20 +22,43 @@ public class BookingApp {
 	}
 
 	
-	
-	@GetMapping("/")	//Si no añadimo nada a la URI nos redirecciona a /inicio
-	public String mover() {
-		return "redirect:/inicio";
+	@RequestMapping("/")
+	@GetMapping("/")	//Si no añadimos nada a la URI nos redirecciona a /index
+	public String moverALogin(Model model) {
+		String error= "";
+		model.addAttribute("error",error);
+		
+		Usuario usuario;
+		//Sesion guardada (TODO sesion???)
+		if(model.getAttribute("usuario")==null) {
+			usuario=new Usuario();
+			model.addAttribute("usuario", usuario);
+			return "index";
+		}else { 
+			usuario=(Usuario) model.getAttribute("usuario");
+			if(usuario.getIdentificacion().isEmpty()) {
+				return "index";
+			}else {
+				//Sesion no iniciada (TODO Session)
+				return "MenuPrincipal";
+			}
+			
+		}
+		
 	}
+
 	
-	@GetMapping("/inicio")	//Abre index.html (inicio de sesion)
-	public String paginaInicio(Model model) {
-		Usuario usuario = new Usuario();
-		model.addAttribute("usuario",usuario);
-		return "index";
+
+	@GetMapping("/inicio")	//Si no añadimos nada a la URI nos redirecciona a /index
+	public String moverALosdafgin(Model model) {
+
+			return "redirect:/";
+
+		}
+		
 	}
 	
 	
 
 
-}
+
