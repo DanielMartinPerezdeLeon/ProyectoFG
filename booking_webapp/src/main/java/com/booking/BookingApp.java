@@ -29,17 +29,19 @@ public class BookingApp {
 		model.addAttribute("error",error);
 		
 		Usuario usuario;
-		//Sesion guardada (TODO sesion???)
-		if(model.getAttribute("usuario")==null) {
+		//Sesion no guardada (TODO sesion???)
+		if(model.getAttribute("usuario") ==null) {
 			usuario=new Usuario();
 			model.addAttribute("usuario", usuario);
 			return "index";
 		}else { 
 			usuario=(Usuario) model.getAttribute("usuario");
 			if(usuario.getIdentificacion().isEmpty()) {
+				usuario=new Usuario();
+				model.addAttribute("usuario", usuario);
 				return "index";
 			}else {
-				//Sesion no iniciada (TODO Session)
+				//Sesion ya iniciada (TODO Session)
 				return "MenuPrincipal";
 			}
 			
