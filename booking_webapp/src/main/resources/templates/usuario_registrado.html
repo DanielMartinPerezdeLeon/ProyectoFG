@@ -12,6 +12,8 @@
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
+<link rel="icon" th:href="@{/images/icon.png}" type="image/png">
+<link rel="shortcut icon" th:href="@{/images/icon.png}" type="image/png">
 </head>
 
 
@@ -23,15 +25,18 @@
 	<!-- header -->
 
 	<header>
-		<nav class="navbar navbar-dark bg-primary">
-			<h2 class="navbar-brand">Booking WebApp</h2>
-
+		<nav class="navbar bg-primary fixed-top">
+			<div
+				class="ms-3 d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+				<img th:src="@{/images/icon.png}"alt="icono principal" height="40">
+				<h2 class="text-white ms-3">Booking WebApp</h2>
+			</div>
 		</nav>
 	</header>
 
 
 	<!-- MAin -->
-	<main style="padding-bottom: 50px">
+	<main style="padding-bottom: 50px; padding-top: 50px">
 		<div class="pt-5">
 
 			<!-- Titulos -->
@@ -42,10 +47,14 @@
 			<h4 class="text-center">Por favor, pongase en contacto con su
 				administrador y espere a que este acepte su registro</h4>
 			<br /> <br />
-			<div class="text-center">
-				<button class="btn btn-primary" id="boton">Volver a inicio</button>
-				<br /> <br />
-			</div>
+
+			<form action="#" th:action="@{/desconectarse}" method="post">
+				<div class="text-center">
+					<input class="btn btn-primary" type="submit"
+						value="Volver a inicio"> <br /> <br />
+				</div>
+			</form>
+
 
 			<!-- Mensajes de error (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
 			<div class="modal fade" id="errorModal" tabindex="-1" role="dialog"
@@ -92,12 +101,7 @@
 
 	<!-- js -->
 
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-	<script type="text/javascript">
-		document.getElementById("boton").addEventListener("click", function(event){
-		  window.location.href = "";	//TODO esto no fufa como deberia
-		});</script>
+
 
 
 </body>

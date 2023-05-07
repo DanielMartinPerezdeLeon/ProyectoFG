@@ -1,5 +1,7 @@
 package com.booking.controller;
 
+import java.util.Base64;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -14,58 +16,63 @@ import com.booking.repository.UsuarioRepository;
 @Controller
 public class IniciarSesionController {
 
+	
 	@Autowired
 	private UsuarioRepository repository;
 
+	
+	// INICIAR SAESION
 	@PostMapping(value = "/iniciar_sesion")
-	public String comprobar(@ModelAttribute("usuario") Usuario usuario,Model model) {
+	public String comprobar(@ModelAttribute("usuario") Usuario usuario, Model model) {
 		try {
 
 			Usuario encontrado = repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
+			
+			//siel usuario no existe en DB
 			if (encontrado == null || usuario == null) {
 				System.out.println("Se ha intentado sacar un usuario no existente " + (usuario.getIdentificacion()));
 				return "index"; // TODO volver a inicio_sesion sacando error
+				
+			//si existe
 			} else {
+				model.addAttribute("usuario",encontrado); 	//Pone al encontrado como usuario en el modelo
 				System.out.println(encontrado.getNombre());
-				return "resultado"; // TODO acceder a la página
+				return "home"; // TODO acceder a la página
 			}
-
+		
+		//excepcion
 		} catch (Exception t) {
 			System.out.println(t.getMessage());
-			//TODO logger
-			model.addAttribute("error",new String("error grave, pongase en contacto con su administrador"));
+			// TODO logger
+			model.addAttribute("error", new String("error grave, pongase en contacto con su administrador"));
 			return "error"; // TODO página /error
 		}
 	}
 
-	@GetMapping(value = "/registrarse")
-	public String moverseRegistrarse(Model model) {
-		model.addAttribute("nuevo_usuario", new Usuario());
-		return "registrarse";
-	}
 
-	@PostMapping(value = "/registrar_usuario")
-	public String registrarUsuario(@ModelAttribute("nuevo_usuario") Usuario usuario, Model model) {
+	//DESCONECTARSE
+	@PostMapping(value = "/desconectarse")
+	public String desconectarse(Model model) {
 		try {
-
-			Usuario encontrado = (Usuario) repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
-
-			if (encontrado != null) {
-				System.out.println("Se ha intentado registrar un usuario ya creado: "+usuario.getIdentificacion());
-				return "index"; //TODO devolver al usuario que ese identificador ya existe
-			}else {
-				usuario.setRol(0);
-				repository.save(usuario);
-				System.out.println("Se ha registrado un nuevo usuario: "+usuario.getIdentificacion());
-				return "usuario_registrado";	//TODO página indicando que se ha registrado correctamente y espere a que el administrador le acepte
+			Usuario usu = (Usuario) model.getAttribute("usuario");
+			//Si se va a salir de usuario_registrado
+			if (usu == null || usu.getIdentificacion().isEmpty()) {
+				System.out.println("Alguien no logeado va a salir (volver a inicio?)");
+			//Si el usuario estaba logeado
+			} else {
+				System.out.println("Un usuario se va ha desconectar: " + usu.getIdentificacion());
 			}
-			
+			model.addAttribute("usuario", null);
+			model.addAttribute("error", null);
+			model.addAttribute("nuevo_usuario", null);
+			return("redirect:/");
+		
+		//excepcion
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			model.addAttribute("error",new String ("Error, grave, póngase en contacto con su administrador"));
-			return ("/error");
+			model.addAttribute("error", new String("Error, grave, póngase en contacto con su administrador"));
+			return ("error");
 		}
-
 	}
 
 }
