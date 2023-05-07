@@ -46,3 +46,6 @@
 - Recordar meter SPRING-DOCKER EN EL POM (https://openwebinars.net/academia/aprende/desplegar-app-spring-boot-docker/)
 
 - https://mdbootstrap.com/ (Muy bien para ver como va a quedar)
+
+-Registro, inicio de sesion y favicones acabados
+
