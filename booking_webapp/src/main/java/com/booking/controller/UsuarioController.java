@@ -3,55 +3,61 @@ package com.booking.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.entity.Usuario;
 import com.booking.repository.UsuarioRepository;
+import com.booking.service.UsuarioService;
+import com.booking.service.UsuarioServiceImpl;
 
 
 
 @RestController
+@RequestMapping("/usuarios")
 public class UsuarioController {
 
 	@Autowired
-	private UsuarioRepository repository;
+    private UsuarioServiceImpl usuarioService;
 
+    @PostMapping
+    public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
+        Usuario usuariocreado = usuarioService.create(usuario);
+        return new ResponseEntity<>(usuariocreado, HttpStatus.CREATED);
+    }
 
-	public UsuarioController(UsuarioRepository repository) {
-		this.repository = repository;
-	}
+    @GetMapping
+    public ResponseEntity<List<Usuario>> getAll() {
+        List<Usuario> usuarios = usuarioService.getAll();
+        return new ResponseEntity<>(usuarios, HttpStatus.OK);
+    }
 
-	@PostMapping(value = "/todos")
-	public List<Usuario> getAll() {
-		return repository.findAll();
-	}
+    @GetMapping("/{identificacion}")
+    public ResponseEntity<Usuario> getByIdentificacion(@PathVariable("identificacion") String identificacion) {
+        Usuario usuario = usuarioService.getByIdentificacion(identificacion);
+        if (usuario == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
+    }
 
-
-	public Usuario getByIdentificador(@PathVariable String identificador) {
-		try {
-			System.out.println("usuario devuelto");
-			return repository.getUsuarioByIdentificacion(identificador);
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-			return null;
-		}
-	}
-	
-	
-
-	@DeleteMapping(value = "/{identificador}")
-	public boolean deleteUsuario(@PathVariable String identificador) {
-		try {
-			Usuario usuario = repository.getUsuarioByIdentificacion(identificador);
-			repository.delete(usuario);
-			return true;
-		} catch (Exception e) {
-			System.err.println(e.getMessage());
-			return false;
-		}
-	}
-
+    @DeleteMapping("/{identificacion}")
+    public ResponseEntity<HttpStatus> remove(@PathVariable("id") String identificacion) {
+        Usuario usuario = usuarioService.getByIdentificacion(identificacion);
+        if (usuario == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        boolean success = usuarioService.remove(usuario);
+        if (success) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 }

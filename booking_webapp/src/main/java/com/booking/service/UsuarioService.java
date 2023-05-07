@@ -10,10 +10,7 @@ public interface UsuarioService {
 	public List<Usuario> getAll();
 
 	public Usuario getByIdentificacion(String identificacion);
-	
 
-	//UPDATE
-	
 	
 	public boolean remove(Usuario usuario);
 }
