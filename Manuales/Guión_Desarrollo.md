@@ -47,5 +47,8 @@
 
 - https://mdbootstrap.com/ (Muy bien para ver como va a quedar)
 
--Registro, inicio de sesion y favicones acabados
+- Registro, inicio de sesion y favicones acabados
+
+- Ahora mismo unas 17-19 horas
+- 
 
