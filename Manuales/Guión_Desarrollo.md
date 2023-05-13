@@ -19,6 +19,37 @@
   - Lo demás default.
   
 - (Opcional pero ayuda) Instalarse en Eclipse los plugins de spring initializr, maven, sonarlint, tomca
+
+
+## Tecnologías necesarias para el desarrollo
+- Eclipse
+- MySQL
+- Git
+- Spring
+- SpringBoot
+- Thymeleaf
+- JavaScript
+- CSS
+- HTML
+- Bootstrap
+- VScode
+- Tomcat
+
+## Herramientas/Webs usadas
+- ChatGPT
+- GitHub
+- Bootstrap docs
+- Bootstrap icons
+- StackOverflow
+- Google/Firefox developer mode
+- Postman
+- GitKraken
+- MySQLWorkbench
+- Baeldung
+- W3School
+- Thymeleaf docs
+- bootstrapstudio.io
+
 ## En el IDE (Eclipse)
 
 - Creamos un proyecto SpringBook starter (Maven) en eclipse. (No he podido guarlas las propiedades)
