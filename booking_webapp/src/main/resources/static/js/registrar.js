@@ -66,6 +66,10 @@ function showErrorModal(message) {
 }
 
 
+var stateObj = {};
+			
+window.history.replaceState(stateObj,"Booking WebApp", "/registrar");
+
 document.getElementById("boton_registrar").addEventListener("click", function(event){
   event.preventDefault(); //Evita que haga submit directamente
   comprobar();

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.booking.entity.Usuario;
 import com.booking.repository.UsuarioRepository;
 
+import jakarta.servlet.http.HttpSession;
+
 
 @Controller
 public class RegistrarController {
@@ -19,6 +21,9 @@ public class RegistrarController {
 	
 	@Autowired
 	private UsuarioRepository repository;
+	
+	@Autowired
+    private HttpSession httpSession;
 	
 	
 	//Ir a registrar
@@ -37,15 +42,16 @@ public class RegistrarController {
 			Usuario encontrado = (Usuario) repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
 			
 			//Si existe un usuario con ese identificador
-			if (encontrado != null || encontrado.getIdentificacion().equalsIgnoreCase(usuario.getIdentificacion())) {
+			if (encontrado != null) {
 				System.out.println("Se ha intentado registrar un usuario ya creado: " + usuario.getIdentificacion());
-				return "index"; // TODO devolver al usuario que ese identificador ya existe
+				model.addAttribute("error",new String("Esa identaficación ya existe"));
+				return "registrarse";
 				
 			//sino
 			} else {
 				//REGISTRA USUARIO
 				usuario.setRol(0);
-				usuario.setContrasena(Base64.getEncoder().encode(usuario.getContrasena())); // CODIFICA LA CONTRASEÑA
+				usuario.setContrasena(new String(Base64.getEncoder().encode(usuario.getContrasena().getBytes()))); // CODIFICA LA CONTRASEÑA
 				repository.save(usuario);
 				System.out.println("Se ha registrado un nuevo usuario: " + usuario.getIdentificacion());
 				return "usuario_registrado"; // TODO página indicando que se ha registrado correctamente y espere a que

@@ -14,8 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.entity.Usuario;
-import com.booking.repository.UsuarioRepository;
-import com.booking.service.UsuarioService;
 import com.booking.service.UsuarioServiceImpl;
 
 
