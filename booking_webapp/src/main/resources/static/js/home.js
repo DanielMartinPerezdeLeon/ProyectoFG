@@ -3,9 +3,27 @@ var stateObj = {};
 
 window.history.replaceState(stateObj,"Booking WebApp", "/home");
 
+
+
+console.log(puestos);   
+
+
+
+//Todo esto mejor lop hago con Java y thimeleaf :)
+/*
+
 var seccion = document.getElementById("elementos");
 
-var url = 'http://localhost:8080/puestos/todos';
+
+
+var url = window.location.href;
+
+
+
+
+url = url.replace('home','puestos/todos');
+
+//'http://localhost:8080/puestos/todos';
 
 
 function httpGet(theUrl)
@@ -22,6 +40,7 @@ var json = JSON.parse(httpGet(url));
 
 
 console.log(json);
+
 
 for(var i=0; i<json.length; i++){
     reservasarray=JSON.parse(json[i].reservas);
@@ -46,11 +65,11 @@ for(var i=0; i<json.length; i++){
                 '<h2>'+json[i].tipo +': '+json[i].id +'</h2>'+
                 '<p class="card-text">'+horas_libres+'</p>'+
                 '<div class="btn-group">'+
-                '<button type="button" class="btn btn-sm btn-outline-secondary id="boton-ver'+i+'">Ver</button>'+
+                '<button type="button" class="btn btn-sm btn-outline-secondary" id="boton-ver'+i+'">Ver</button>'+
     '</div></div></div></div>';
     
     console.log(reservasarray);
 }
 
 
-seccion.innerHTML+= html;
+seccion.innerHTML+= html; */
