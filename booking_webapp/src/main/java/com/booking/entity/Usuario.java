@@ -1,6 +1,6 @@
 package com.booking.entity;
 
-import java.util.Arrays;
+import java.io.Serializable;
 import java.util.Base64;
 
 
@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "usuarios")
-public class Usuario {
+public class Usuario implements Serializable{
 
 	
 	@Column(name = "nombre")
@@ -31,7 +31,7 @@ public class Usuario {
 	
 	@Column(name = "contrasena")
 	//@JsonProperty("contrasena")
-	private byte[] contrasena;	//Contraseña encriptada para no mostrar la original+ (Base64)
+	private String contrasena;	//Contraseña encriptada para no mostrar la original+ (Base64)
 	
 	@Column(name = "rol")
 	private int rol; //1,usuario; 2,manager; 3,admin; 0,no-aceptado
@@ -53,13 +53,13 @@ public class Usuario {
 		this.nombre=nombre;
 		this.apellidos=apellido;
 		this.identificacion=identificacion;
-		this.contrasena=Base64.getEncoder().encode(contrasena.getBytes());
+		this.contrasena=new String(Base64.getEncoder().encode(contrasena.getBytes()));
 	}
 	
 	public Usuario(String identificacion, String contrasena) {
 		super();
 		this.identificacion=identificacion;
-		this.contrasena=Base64.getEncoder().encode(contrasena.getBytes());
+		this.contrasena=new String(Base64.getEncoder().encode(contrasena.getBytes()));
 	}
 
 
@@ -72,11 +72,11 @@ public class Usuario {
 		this.nombre = nombre;
 	}
 
-	public byte[] getContrasena() {
+	public String getContrasena() {
 		return contrasena;
 	}
 
-	public void setContrasena(byte[] contrasena) {
+	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
 
@@ -99,7 +99,7 @@ public class Usuario {
 	@Override
 	public String toString() {
 		return "Usuario [nombre=" + nombre + ", apellidos=" + apellidos + ", identificacion="
-				+ identificacion + ", contrasenaCodificada=" + Arrays.toString(contrasena) + "]";
+				+ identificacion + ", contrasenaCodificada=" +contrasena + "]";
 	}
 
 	public int getRol() {
@@ -111,7 +111,10 @@ public class Usuario {
 	}
 	
 	
-	
+	public String getContrasenaDescodificada() {
+		byte[] contrasena_descodificada = Base64.getDecoder().decode(this.contrasena);
+		return new String(contrasena_descodificada);
+	}
 	
 	
 	
