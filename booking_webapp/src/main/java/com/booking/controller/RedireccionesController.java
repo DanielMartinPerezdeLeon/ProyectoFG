@@ -87,8 +87,7 @@ public class RedireccionesController {
 			}
 			
 			JSONArray json=getJson(urljson);
-			System.out.println(json.toString());
-			System.out.println(json.length());
+
 			
 			int[] horas = new int[json.length()];
 			
@@ -107,7 +106,7 @@ public class RedireccionesController {
 				horas[i]=horas_libres;
 			}
 			
-			System.out.println(horas[1]);
+			System.out.println("usuario entra: "+usuario.getIdentificacion());
 			model.addAttribute("horas",horas);
 			model.addAttribute("puestos",json);
 			

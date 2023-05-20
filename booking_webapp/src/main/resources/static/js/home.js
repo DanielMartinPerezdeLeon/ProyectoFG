@@ -1,29 +1,14 @@
 
 var stateObj = {};
 
-window.history.replaceState(stateObj,"Booking WebApp", "/home");
+window.history.replaceState(stateObj, "Booking WebApp", "/home");
 
 
 
-console.log(puestos);   
+console.log(puestos);
 
 
 
-//Todo esto mejor lop hago con Java y thimeleaf :)
-/*
-
-var seccion = document.getElementById("elementos");
-
-
-
-var url = window.location.href;
-
-
-
-
-url = url.replace('home','puestos/todos');
-
-//'http://localhost:8080/puestos/todos';
 
 
 function httpGet(theUrl)
@@ -34,42 +19,79 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
-var html="";
-
-var json = JSON.parse(httpGet(url));
-
-
-console.log(json);
-
-
-for(var i=0; i<json.length; i++){
-    reservasarray=JSON.parse(json[i].reservas);
-    
-    var horas_libres=0;
-    for(var j=0; j<reservasarray.length; j++){
-        if(reservasarray[j].detalle == ""){
-            horas_libres++;
-        }
-    }
-
-    if (horas_libres=8){
-        horas_libres="Sin horas reservadas.";
-    }else{
-        horas_libres=horas_libres+" horas reservadas.";
-    }
-
-	html+=
-    '<div class="col">'+
-        '<div class="card shadow-sm">'+
-            '<div class="card-body">'+
-                '<h2>'+json[i].tipo +': '+json[i].id +'</h2>'+
-                '<p class="card-text">'+horas_libres+'</p>'+
-                '<div class="btn-group">'+
-                '<button type="button" class="btn btn-sm btn-outline-secondary" id="boton-ver'+i+'">Ver</button>'+
-    '</div></div></div></div>';
-    
-    console.log(reservasarray);
+function getObjectById(id, json) {
+    var result = json.find(obj => obj.id === parseInt(id));
+    return result ? (result) : null;
 }
 
 
-seccion.innerHTML+= html; */
+
+//Muestra modal del puesto
+function showModal(puesto) {
+  const modal = document.getElementById('Modal');
+  const errorMessage = document.getElementById('Message');
+  const header = document.getElementById('ModalLabel');
+  const tbody = document.querySelector('table tbody');
+  
+  var reservas=JSON.parse(puesto.reservas);
+
+  var i=0;
+
+  tbody.querySelectorAll('tr').forEach(tr => {
+
+    tr.innerHTML="";
+
+    var td1=document.createElement("td");
+    td1.textContent=reservas[i].id;
+
+    var td2=document.createElement("td");
+
+    tr.appendChild(td1);
+
+    
+    if(reservas[i].detalle==""){
+        td2.textContent ="Libre";
+        tr.className="table-success";
+       
+
+        td2.innerHTML+='<button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal" id="reserva-' +puesto.id+"-"+i+" "+ '"onclick="reservar(this.id)"> Reservar </button>'
+    }else{
+        td2.textContent =reservas[i].detalle;
+        tr.className="table-warning";
+    }
+    
+     td2.className="d-flex justify-content-between";
+
+    tr.appendChild(td2);
+
+
+    i++;
+  });
+
+  header.textContent = puesto.tipo+" "+puesto.id+":";
+  new bootstrap.Modal(modal).show();
+}
+
+
+
+function verpuesto(id) {
+
+    var url = window.location.href;
+
+    url = url.replace('home', 'puestos/todos'); //'http://localhost:8080/puestos/todos';
+
+
+    var json=JSON.parse(httpGet(url));
+
+
+    var puesto = getObjectById(id, json);
+
+    showModal(puesto)
+}
+
+
+
+
+
+
+

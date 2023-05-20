@@ -71,18 +71,52 @@
 
 
 
-			<!-- Mensajes de error (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
-			<div class="modal fade" id="errorModal" tabindex="-1" role="dialog"
-				aria-labelledby="errorModalLabel" aria-hidden="true">
+			<!-- modal de los puestos  (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
+			<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
+				aria-labelledby="ModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
-						<div class="modal-header" style="background-color: red">
-							<h5 class="modal-title text-white" id="errorModalLabel">Error</h5>
+						<div class="modal-header">
+							<h3 class="modal-title text-black" id="ModalLabel">Error</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<p id="errorMessage"></p>
+							<table class="table" id="tabla">
+								<thead>
+									<tr>
+										<th>Hora</th>
+										<th>Reserva</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+	
+									</tr>
+									<tr>
+	
+									</tr>
+									<tr>
+
+
+									</tr>
+									<tr>
+
+									</tr>
+									<tr>
+
+									</tr>
+									<tr>
+
+									</tr>
+									<tr>
+
+									</tr>
+									<tr>
+
+									</tr>
+								</tbody>
+							</table>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -103,20 +137,22 @@
 						<div class="col" th:each="puesto: ${puestos}">
 							<div class="card shadow-sm">
 								<div class="card-body" th:with="i=${puesto.get('id')-1}">
-									<h2><span th:text='${puesto.get("tipo")}'></span>: <span th:text='${puesto.get("id")}'></span></h2>
+									<h2>
+										<span th:text='${puesto.get("tipo")}'></span>: <span
+											th:text='${puesto.get("id")}'></span>
+									</h2>
 									<th:block th:with="horas_libres=${horas[i]}">
 										<th:block th:switch="${horas_libres}">
-											<p class="card-text">  
-											<span th:case="0">Sin</span>
-											<span th:case="8">Todas las</span>
-											<span th:case="*" th:text="${horas_libres}"></span>
-											horas libres
+											<p class="card-text">
+												<span th:case="0">Sin</span> <span th:case="8">Todas
+													las</span> <span th:case="*" th:text="${horas_libres}"></span>
+												horas libres
 											</p>
 										</th:block>
 									</th:block>
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary"
-											th:id='${puesto.get("id")}'>Ver</button>
+											th:id='${puesto.get("id")}' onclick="verpuesto(this.id)">Ver</button>
 									</div>
 								</div>
 							</div>
@@ -155,10 +191,10 @@
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-    <script th:inline="javascript" type="text/javascript">var puestos = [(${puestos})];</script>
+	<script th:inline="javascript" type="text/javascript">var puestos = [(${puestos})];</script>
 	<script type="text/javascript" th:src="@{/js/home.js}"></script>
-	
-	
+
+
 
 </body>
 
