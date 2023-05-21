@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.booking.entity.Usuario;
 import com.booking.repository.UsuarioRepository;
@@ -63,10 +65,10 @@ public class IniciarSesionController {
 
 
 	//DESCONECTARSE
-	@PostMapping(value = "/desconectarse")
-	public String desconectarse(Model model) {
+	@GetMapping(value = "/desconectarse")
+	public String desconectarse(Model model, HttpSession session) {
 		try {
-			Usuario usu = (Usuario) model.getAttribute("usuario");
+			Usuario usu = (Usuario) session.getAttribute("usuario");
 			//Si se va a salir de usuario_registrado
 			if (usu == null || usu.getIdentificacion().isEmpty()) {
 				System.out.println("Alguien no logeado va a salir (volver a inicio?)");
@@ -74,9 +76,14 @@ public class IniciarSesionController {
 			} else {
 				System.out.println("Un usuario se va ha desconectar: " + usu.getIdentificacion());
 			}
+			
+			session.setAttribute("usuario", null);
 			model.addAttribute("usuario", null);
 			model.addAttribute("error", null);
 			model.addAttribute("nuevo_usuario", null);
+			
+			session.invalidate();
+			
 			return("redirect:/");
 		
 		//excepcion

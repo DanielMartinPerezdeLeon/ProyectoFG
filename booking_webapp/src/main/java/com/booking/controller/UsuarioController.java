@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.entity.Usuario;
+import com.booking.repository.UsuarioRepository;
 import com.booking.service.UsuarioServiceImpl;
 
 
@@ -23,21 +24,27 @@ import com.booking.service.UsuarioServiceImpl;
 public class UsuarioController {
 
 	@Autowired
-    private UsuarioServiceImpl usuarioService;
+    private UsuarioRepository repository;
 
-    @PostMapping
+    @GetMapping(value="crear")
     public ResponseEntity<Usuario> create(@RequestBody Usuario usuario) {
-        Usuario usuariocreado = usuarioService.create(usuario);
+        Usuario usuariocreado = repository.save(usuario);
         return new ResponseEntity<>(usuariocreado, HttpStatus.CREATED);
     }
 
-    @GetMapping
+    @GetMapping(value="/todos")
     public ResponseEntity<List<Usuario>> getAll() {
-        List<Usuario> usuarios = usuarioService.getAll();
+        List<Usuario> usuarios = repository.findAll();
+        
+        for (Usuario usuario: usuarios) {
+        	usuario.setContrasena("");	//Para que no se muestre la contraseña en el JSON (PELIGROSISIMO)
+        }
+        
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
 
-    @GetMapping("/{identificacion}")
+    /*
+    @PostMapping("/{identificacion}")
     public ResponseEntity<Usuario> getByIdentificacion(@PathVariable("identificacion") String identificacion) {
         Usuario usuario = usuarioService.getByIdentificacion(identificacion);
         if (usuario == null) {
@@ -58,4 +65,6 @@ public class UsuarioController {
         }
         return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
+    
+ */
 }

@@ -49,6 +49,8 @@ public class PuestoController {
 
 		repository.delete(puesto);
 		repository.save(puesto_nuevo);
+	
+		System.out.println(datos.getUsuario()+" ha reservado puesto "+datos.getPuesto() + " a las " +datos.getHora());
 	}
 
 }

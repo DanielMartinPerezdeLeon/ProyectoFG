@@ -8,6 +8,12 @@ window.history.replaceState(stateObj, "Booking WebApp", "/home");
 console.log(puestos);
 
 
+function cerrarSesion(){
+    var url=window.location.href;
+    url=url.replace('home','desconectarse');
+    window.location.replace(url);
+}
+
 
 //Muestra modal del puesto
 function showModalReserva() {

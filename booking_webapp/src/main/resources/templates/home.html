@@ -45,11 +45,20 @@
 					<div class="collapse navbar-collapse" id="navbarColor02">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item"><a class="nav-link active"
-								aria-current="page" href="/home">Inicio</a></li>
-							<li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+								aria-current="page" href="/home">Reservar</a></li>
+							<th:block th:if="${usuario.rol > 1}">
+								<li class="nav-item"><a class="nav-link" href="/ver_usuarios">Usuarios</a></li>
+								<li class="nav-item"><a class="nav-link" href="/ver_puestos">Puestos</a></li>
+							</th:block>
 						</ul>
 					</div>
 				</div>
+
+				<div>
+					<button type="button" class="btn btn-outline-danger"
+						id="cerrar_sesion" onclick="cerrarSesion()">Cerrar Sesión</button>
+				</div>
+
 
 			</div>
 		</nav>
@@ -91,10 +100,10 @@
 								</thead>
 								<tbody>
 									<tr>
-	
+
 									</tr>
 									<tr>
-	
+
 									</tr>
 									<tr>
 
@@ -128,13 +137,13 @@
 
 
 
-	<!-- modal al reservar (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
+			<!-- modal al reservar (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
 			<div class="modal fade" id="ModalReserva" tabindex="-1" role="dialog"
 				aria-labelledby="ModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
-						<div class="modal-header">
-							<h3 class="modal-title text-black" style="background-color: green" id="ModalLabel">Reserva</h3>
+						<div class="modal-header" style="background-color: #00c800">
+							<h3 class="modal-title text-black" id="ModalLabel">Reserva</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
