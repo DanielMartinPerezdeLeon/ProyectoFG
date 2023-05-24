@@ -1,7 +1,10 @@
 package com.booking.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.booking.entity.DatosCambiarRol;
+import com.booking.entity.DatosReserva;
 import com.booking.entity.Usuario;
 import com.booking.repository.UsuarioRepository;
-import com.booking.service.UsuarioServiceImpl;
+
 
 
 
@@ -36,12 +41,28 @@ public class UsuarioController {
     public ResponseEntity<List<Usuario>> getAll() {
         List<Usuario> usuarios = repository.findAll();
         
-        for (Usuario usuario: usuarios) {
-        	usuario.setContrasena("");	//Para que no se muestre la contraseña en el JSON (PELIGROSISIMO)
-        }
         
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
+    
+    
+    @PostMapping(value = "/cambiar_rol")
+	public void reservar(@RequestBody DatosCambiarRol datos) {
+		Usuario usuario = repository.getUsuarioByIdentificacion(datos.getUsuario());
+
+		int nuevo_rol=datos.getRol();
+		
+
+		repository.delete(usuario);
+		
+		usuario.setRol(nuevo_rol);
+		
+		repository.save(usuario);
+		
+		
+	
+		System.out.println(" Se ha aceptado un usuario nuevo: "+datos.getUsuario());
+	}
 
     /*
     @PostMapping("/{identificacion}")

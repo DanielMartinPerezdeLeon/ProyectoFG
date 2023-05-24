@@ -172,6 +172,7 @@ public class RedireccionesController {
 				System.out.println(usuario.getIdentificacion()+" accediendo a la información de todos los usuarios");
 				
 				model.addAttribute("lista_usuarios",json);
+				model.addAttribute("usuario",usuario);
 				
 				return("usuarios");
 			}

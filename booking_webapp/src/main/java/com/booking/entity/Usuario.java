@@ -110,12 +110,11 @@ public class Usuario implements Serializable{
 		this.rol = rol;
 	}
 	
-	
-	public String getContrasenaDescodificada() {
+		
+	public String ContrasenaDescodificada() {
 		byte[] contrasena_descodificada = Base64.getDecoder().decode(this.contrasena);
 		return new String(contrasena_descodificada);
 	}
-	
 	
 	
 	
