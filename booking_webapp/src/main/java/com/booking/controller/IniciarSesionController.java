@@ -42,8 +42,8 @@ public class IniciarSesionController {
 			} else {
 				
 				//Si contraseña incorrecta
-				if(encontrado.getContrasenaDescodificada().equalsIgnoreCase(usuario.getContrasena())==false) {
-					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getContrasena())+" "+encontrado.getContrasenaDescodificada());
+				if(encontrado.ContrasenaDescodificada().equalsIgnoreCase(usuario.getContrasena())==false) {
+					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getContrasena())+" "+encontrado.ContrasenaDescodificada());
 					model.addAttribute("error",new String("Contraseña incorrecta"));
 					return "index";
 				}

@@ -38,7 +38,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('','','','',0),('','','*','*',0),('a','a','a','YQ==',0),('admin','admin','admin','admin',3),('aa','as','asa','YXNh',0),('aa','as','asasd','YXNh',0),('a','a','asd','YQ==',0),('asd','asd','identificacion2','asd',0),('sisi','asd','nuevo','bnVldm8=',0),('pepe','pepe','pepe','pepe',1),('usuario','usuariez usuario','usuario1','contraseña',0),('soso','sosoe','usuario4','YXNvYXNvYXNv',0);
+INSERT INTO `usuarios` VALUES ('admin','admin','admin','YWRtaW4=',3),('manager','manager','manager','bWFuYWdlcg==',2),('nousu','nousu','nousu','bm91c3U=',0),('pepe','pepe','pepe','cGVwZQ==',1),('usuario','usuario','usuario1','dXN1YXJpbzE=',1),('usuario2','usuario2','usuario2','dXN1YXJpbzI=',1);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-12 21:33:12
+-- Dump completed on 2023-05-24 12:23:00
