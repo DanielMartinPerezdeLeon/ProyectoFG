@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `bookingDB` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `bookingDB`;
 -- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
 --
 -- Host: localhost    Database: bookingDB
@@ -39,7 +37,7 @@ CREATE TABLE `SPRING_SESSION_ATTRIBUTES` (
 
 LOCK TABLES `SPRING_SESSION_ATTRIBUTES` WRITE;
 /*!40000 ALTER TABLE `SPRING_SESSION_ATTRIBUTES` DISABLE KEYS */;
-INSERT INTO `SPRING_SESSION_ATTRIBUTES` VALUES ('aabfcfc7-cef6-4ffc-8d8a-22b1f9d28abc','usuario',_binary '¬\í\0sr\0\Zcom.booking.entity.Usuario¼³ˆ\ÃO\Â\0I\0rolL\0	apellidost\0Ljava/lang/String;L\0\ncontrasenaq\0~\0L\0identificacionq\0~\0L\0nombreq\0~\0xp\0\0\0t\0lot\0bG8=t\0lot\0lo');
+INSERT INTO `SPRING_SESSION_ATTRIBUTES` VALUES ('aed0f397-bbc3-49da-bf7b-def4af1b40d6','usuario',_binary '¬\í\0sr\0\Zcom.booking.entity.Usuario\Ã®÷Ÿ÷p(\0I\0rolL\0	apellidost\0Ljava/lang/String;L\0\ncontrasenaq\0~\0L\0identificacionq\0~\0L\0nombreq\0~\0xp\0\0\0t\0admint\0YWRtaW4=t\0admint\0admin');
 /*!40000 ALTER TABLE `SPRING_SESSION_ATTRIBUTES` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-21 13:10:28
+-- Dump completed on 2023-05-24 12:23:00

@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `bookingDB` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `bookingDB`;
 -- MySQL dump 10.13  Distrib 8.0.33, for Linux (x86_64)
 --
 -- Host: localhost    Database: bookingDB
@@ -18,30 +16,35 @@ USE `bookingDB`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `usuarios`
+-- Table structure for table `SPRING_SESSION`
 --
 
-DROP TABLE IF EXISTS `usuarios`;
+DROP TABLE IF EXISTS `SPRING_SESSION`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `usuarios` (
-  `nombre` varchar(50) DEFAULT NULL,
-  `apellidos` varchar(90) DEFAULT NULL,
-  `identificacion` varchar(45) NOT NULL,
-  `contrasena` varchar(100) DEFAULT 'Y29udHJhc2XDsWE=',
-  `rol` int DEFAULT '0',
-  PRIMARY KEY (`identificacion`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+CREATE TABLE `SPRING_SESSION` (
+  `PRIMARY_ID` char(36) NOT NULL,
+  `SESSION_ID` char(36) NOT NULL,
+  `CREATION_TIME` bigint NOT NULL,
+  `LAST_ACCESS_TIME` bigint NOT NULL,
+  `MAX_INACTIVE_INTERVAL` int NOT NULL,
+  `EXPIRY_TIME` bigint NOT NULL,
+  `PRINCIPAL_NAME` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`PRIMARY_ID`),
+  UNIQUE KEY `SPRING_SESSION_IX1` (`SESSION_ID`),
+  KEY `SPRING_SESSION_IX2` (`EXPIRY_TIME`),
+  KEY `SPRING_SESSION_IX3` (`PRINCIPAL_NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `usuarios`
+-- Dumping data for table `SPRING_SESSION`
 --
 
-LOCK TABLES `usuarios` WRITE;
-/*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES ('a','a','a','',1),('aa','as','asa','',1),('aa','as','asasd','',1),('a','a','asd','',1),('cars','cars','cars','',0),('lo','lo','lo','',3),('sisi','asd','nuevo','',0),('prosaf','pwfgoa','prop2','',0),('soso','sosoe','usuario4','',0);
-/*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
+LOCK TABLES `SPRING_SESSION` WRITE;
+/*!40000 ALTER TABLE `SPRING_SESSION` DISABLE KEYS */;
+INSERT INTO `SPRING_SESSION` VALUES ('ab8a3b6b-babe-44bc-aadd-9c4e50163791','d3068d1a-319e-4565-a9b8-a0d0872b2147',1684923329659,1684923329683,900,1684924229683,NULL),('aed0f397-bbc3-49da-bf7b-def4af1b40d6','eeef51ba-65cc-40ae-98f4-2ff8b2c42fef',1684922461351,1684922965967,900,1684923865967,NULL);
+/*!40000 ALTER TABLE `SPRING_SESSION` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-21 13:10:28
+-- Dump completed on 2023-05-24 12:22:59
