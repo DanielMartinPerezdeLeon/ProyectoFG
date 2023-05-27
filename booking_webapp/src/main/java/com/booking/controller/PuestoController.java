@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.booking.entity.DatosReserva;
 import com.booking.entity.Puesto;
+import com.booking.entity.Usuario;
+import com.booking.entity.DatosJSON.DatosCambiarEstado;
+import com.booking.entity.DatosJSON.DatosCambiarRol;
+import com.booking.entity.DatosJSON.DatosReserva;
 import com.booking.repository.PuestoRepository;
 
 @RestController
@@ -51,6 +54,25 @@ public class PuestoController {
 		repository.save(puesto_nuevo);
 	
 		System.out.println(datos.getUsuario()+" ha reservado puesto "+datos.getPuesto() + " a las " +datos.getHora());
+	}
+	
+	
+	@PostMapping(value="/cambiar_estado")
+	public void cambiarEstado(@RequestBody DatosCambiarEstado datos) {
+		Puesto puesto= repository.getPuestoByid(datos.getId());
+
+		boolean nuevo_estado=datos.isEstado();
+		
+
+		repository.delete(puesto);
+		
+		puesto.setEstado(nuevo_estado);
+		
+		repository.save(puesto);
+		
+		
+	
+		System.out.println(" Se ha cambiado el estado al puesto: "+datos.getId());
 	}
 
 }

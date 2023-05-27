@@ -46,7 +46,6 @@ public class RedireccionesController {
 		Usuario usuario= (Usuario) session.getAttribute("usuario");
 
 
-		// Sesion no guardada (TODO sesion???)
 		if (usuario==null) {
 			usuario = new Usuario();
 			model.addAttribute("usuario", usuario);
@@ -83,13 +82,13 @@ public class RedireccionesController {
 		Usuario usuario= (Usuario) session.getAttribute("usuario");
 		if(usuario!=null && !usuario.getIdentificacion().isBlank()) {
 			model.addAttribute("usuario",usuario);
-			System.out.println(usuario.getIdentificacion()+session.getCreationTime());
+
 			
 			URL urljson;
 			try {
 				urljson = new URL("http://localhost:8080/puestos/todos");
 			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
+
 				String error = "Error obteniendo url JSON";
 				model.addAttribute("error", error);
 				e.printStackTrace();
@@ -160,7 +159,6 @@ public class RedireccionesController {
 				try {
 					urljson = new URL("http://localhost:8080/usuarios/todos");
 				} catch (MalformedURLException e) {
-					// TODO Auto-generated catch block
 					String error = "Error obteniendo url JSON";
 					model.addAttribute("error", error);
 					e.printStackTrace();
@@ -169,7 +167,7 @@ public class RedireccionesController {
 				
 				JSONArray json=getJson(urljson);
 				
-				System.out.println(usuario.getIdentificacion()+" accediendo a la información de todos los usuarios");
+				System.out.println(usuario.getIdentificacion()+" accediendo a la información de los usuarios");
 				
 				model.addAttribute("lista_usuarios",json);
 				model.addAttribute("usuario",usuario);
@@ -179,4 +177,50 @@ public class RedireccionesController {
 			
 			return("redirect:/");
 		}
+		
+		
+		
+		//puestos
+		@GetMapping("/ver_puestos") 
+		public String moverPuestos(Model model, HttpSession session) {
+			
+			Usuario usuario= (Usuario) session.getAttribute("usuario");
+			if(usuario!=null && !usuario.getIdentificacion().isBlank()) {
+				model.addAttribute("usuario",usuario);
+
+				
+				URL urljson;
+				try {
+					urljson = new URL("http://localhost:8080/puestos/todos");
+				} catch (MalformedURLException e) {
+
+					String error = "Error obteniendo url JSON";
+					model.addAttribute("error", error);
+					e.printStackTrace();
+					return "error";
+				}
+				
+				JSONArray json=getJson(urljson);
+
+				
+				
+				
+				System.out.println("usuario entra: "+usuario.getIdentificacion());
+				model.addAttribute("puestos",json);
+				
+				System.out.println(usuario.getIdentificacion()+" accediendo a la información de los puestos");
+				
+
+				
+				
+			
+				return "puestos";
+			}else {
+				model.addAttribute("usuario",null);
+				return"redirect:/";
+			}
+			
+
+		}
+		
 }

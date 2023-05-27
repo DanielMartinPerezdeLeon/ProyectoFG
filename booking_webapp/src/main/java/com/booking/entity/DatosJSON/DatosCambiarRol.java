@@ -1,4 +1,4 @@
-package com.booking.entity;
+package com.booking.entity.DatosJSON;
 
 public class DatosCambiarRol {
 	
