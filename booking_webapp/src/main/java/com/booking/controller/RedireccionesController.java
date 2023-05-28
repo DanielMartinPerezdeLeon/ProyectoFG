@@ -210,8 +210,8 @@ public class RedireccionesController {
 				
 				System.out.println(usuario.getIdentificacion()+" accediendo a la información de los puestos");
 				
-
 				
+				model.addAttribute("nuevo_puesto", new Puesto());
 				
 			
 				return "puestos";

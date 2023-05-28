@@ -162,3 +162,14 @@ function reiniciarHoras(id){
         setTimeout(() => { location.reload(); }, 500);
 
 }
+
+
+
+function modalPuestoNuevo(){
+
+    const modal = document.getElementById('ModalPuestoNuevo');
+    new bootstrap.Modal(modal).show();
+}
+
+
+

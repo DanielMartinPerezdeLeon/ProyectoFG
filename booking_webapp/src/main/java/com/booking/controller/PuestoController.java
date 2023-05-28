@@ -7,8 +7,11 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +22,7 @@ import com.booking.entity.DatosJSON.DatosCambiarEstado;
 import com.booking.entity.DatosJSON.DatosReserva;
 import com.booking.repository.PuestoRepository;
 
+@Controller
 @RestController
 @RequestMapping("/puestos")
 public class PuestoController {
@@ -92,6 +96,32 @@ public class PuestoController {
 		
 	
 		System.out.println(" Se ha reiniciado los horario del puesto:" + datos.getPuesto());
+	}
+	
+	
+	@CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
+	@PostMapping(value="/registrar")
+	public void nuevoPuesto(@ModelAttribute("nuevo_puesto") Puesto puesto, Model model) {
+
+		List<Puesto> puestos =repository.findAll();
+		
+		
+		int i =0;
+		
+		for(Puesto p: puestos) {
+			if(p.getId()>i) {
+				i=p.getId();
+			}
+		}
+		
+		puesto.setId(i+1);
+		puesto.setReservasDefault();
+		repository.save(puesto);
+		
+		
+	
+		System.out.println(" Se ha creado un puesto nuevo: " + puesto.getId());
+		
 	}
 	
 

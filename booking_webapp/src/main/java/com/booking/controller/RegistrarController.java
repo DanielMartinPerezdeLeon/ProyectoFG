@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.booking.entity.Usuario;
 import com.booking.repository.UsuarioRepository;
 
-import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -22,8 +21,6 @@ public class RegistrarController {
 	@Autowired
 	private UsuarioRepository repository;
 	
-	@Autowired
-    private HttpSession httpSession;
 	
 	
 	//Ir a registrar
@@ -54,8 +51,7 @@ public class RegistrarController {
 				usuario.setContrasena(new String(Base64.getEncoder().encode(usuario.getContrasena().getBytes()))); // CODIFICA LA CONTRASEÑA
 				repository.save(usuario);
 				System.out.println("Se ha registrado un nuevo usuario: " + usuario.getIdentificacion());
-				return "usuario_registrado"; // TODO página indicando que se ha registrado correctamente y espere a que
-												// el administrador le acepte
+				return "usuario_registrado"; 
 			}
 		
 	    //EXCEPCION
