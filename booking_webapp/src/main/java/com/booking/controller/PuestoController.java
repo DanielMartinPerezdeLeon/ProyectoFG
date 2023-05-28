@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -14,9 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.entity.Puesto;
-import com.booking.entity.Usuario;
 import com.booking.entity.DatosJSON.DatosCambiarEstado;
-import com.booking.entity.DatosJSON.DatosCambiarRol;
 import com.booking.entity.DatosJSON.DatosReserva;
 import com.booking.repository.PuestoRepository;
 
@@ -35,7 +34,7 @@ public class PuestoController {
 	}
 	
 	
-
+	@CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
 	@PostMapping(value = "/reservar")
 	public void reservar(@RequestBody DatosReserva datos) {
 		Puesto puesto = repository.getPuestoByid(datos.getPuesto());
@@ -57,6 +56,7 @@ public class PuestoController {
 	}
 	
 	
+	@CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
 	@PostMapping(value="/cambiar_estado")
 	public void cambiarEstado(@RequestBody DatosCambiarEstado datos) {
 		Puesto puesto= repository.getPuestoByid(datos.getId());
