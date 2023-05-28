@@ -55,6 +55,8 @@ function showModal(puesto) {
     var switchb= document.getElementById('flexSwitchCheckDefault');
     var switchlabel =document.getElementById('label-switch');
 
+    document.getElementById("reiniciar_horas").id=puesto.id;
+
 
     var button =document.getElementsByClassName("btn btn-secondary");
     button[0].id=puesto.id;
@@ -123,4 +125,40 @@ function cambiarEstado(id){
 
         setTimeout(() => { location.reload(); }, 500);
         
+}
+
+
+function reiniciarHoras(id){
+
+    var url = window.location.href;
+
+    url = url.replace('ver_puestos', 'puestos/reiniciar');
+
+
+    const data = {
+        puesto: id,
+        hora: 0,
+        usuario: "null"
+    };
+
+
+    fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => response.json())
+        .then(result => {
+            // Handle the response from the server
+            console.log(result);
+        })
+        .catch(error => {
+            // Handle any errors that occurred during the request
+            console.error(error);
+        });
+
+        setTimeout(() => { location.reload(); }, 500);
+
 }

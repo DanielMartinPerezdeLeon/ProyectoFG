@@ -71,19 +71,8 @@ public class Puesto {
     }
     
     public void setReservasDefault() {
-    	JSONObject jsonObject = new JSONObject();
-    	JSONArray reservasArray = new JSONArray();
-
-    	for (int i = 0; i < 24; i++) {
-    	    JSONArray innerArray = new JSONArray();
-    	    innerArray.put(i);
-    	    innerArray.put("");
-    	    reservasArray.put(innerArray);
-    	}
-
-    	jsonObject.put("reservas", reservasArray);
-    	
-    	this.reservas=jsonObject.toString();
+    	String def_reservas="[{\"id\": 8, \"detalle\": \"\"}, {\"id\": 9, \"detalle\": \"\"}, {\"id\": 10, \"detalle\": \"\"}, {\"id\": 11, \"detalle\": \"\"}, {\"id\": 12, \"detalle\": \"\"}, {\"id\": 13, \"detalle\": \"\"}, {\"id\": 14, \"detalle\": \"\"}, {\"id\": 15, \"detalle\": \"\"}]";
+    	this.reservas=def_reservas;
     }
     
 }

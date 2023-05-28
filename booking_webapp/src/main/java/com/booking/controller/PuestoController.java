@@ -74,5 +74,25 @@ public class PuestoController {
 	
 		System.out.println(" Se ha cambiado el estado al puesto: "+datos.getId());
 	}
+	
+	
+	@CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
+	@PostMapping(value="/reiniciar")
+	public void reiniciar(@RequestBody DatosReserva datos) {
+		Puesto puesto= repository.getPuestoByid(datos.getPuesto());
+
+		
+
+		repository.delete(puesto);
+		
+		puesto.setReservasDefault();
+		
+		repository.save(puesto);
+		
+		
+	
+		System.out.println(" Se ha reiniciado los horario del puesto:" + datos.getPuesto());
+	}
+	
 
 }
