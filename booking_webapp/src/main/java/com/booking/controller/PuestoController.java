@@ -10,14 +10,18 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import com.booking.entity.Puesto;
+import com.booking.entity.Usuario;
 import com.booking.entity.DatosJSON.DatosCambiarEstado;
 import com.booking.entity.DatosJSON.DatosReserva;
 import com.booking.repository.PuestoRepository;
@@ -40,8 +44,12 @@ public class PuestoController {
 	
 	@CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
 	@PostMapping(value = "/reservar")
-	public void reservar(@RequestBody DatosReserva datos) {
+	public ResponseEntity<HttpStatus>reservar(@RequestBody DatosReserva datos) {
 		Puesto puesto = repository.getPuestoByid(datos.getPuesto());
+		
+		if(puesto==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}else {
 
 		JSONArray jsonreservas = new JSONArray(puesto.getReservas());
 
@@ -56,7 +64,9 @@ public class PuestoController {
 		repository.delete(puesto);
 		repository.save(puesto_nuevo);
 	
-		System.out.println(datos.getUsuario()+" ha reservado puesto "+datos.getPuesto() + " a las " +datos.getHora());
+		System.out.println(datos.getUsuario()+" ha reservado puesto "+datos.getPuesto() + " a las " +(datos.getHora()+8));
+		return new ResponseEntity<>(HttpStatus.OK);
+		}
 	}
 	
 	
@@ -82,26 +92,27 @@ public class PuestoController {
 	
 	@CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
 	@PostMapping(value="/reiniciar")
-	public void reiniciar(@RequestBody DatosReserva datos) {
+	public ResponseEntity<HttpStatus> reiniciar(@RequestBody DatosReserva datos) {
 		Puesto puesto= repository.getPuestoByid(datos.getPuesto());
 
+		if(puesto==null) {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}else {
+			repository.delete(puesto);
+			puesto.setReservasDefault();
+			repository.save(puesto);
 		
+			System.out.println(" Se ha reiniciado los horario del puesto:" + datos.getPuesto());
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
 
-		repository.delete(puesto);
 		
-		puesto.setReservasDefault();
-		
-		repository.save(puesto);
-		
-		
-	
-		System.out.println(" Se ha reiniciado los horario del puesto:" + datos.getPuesto());
 	}
 	
 	
 	@CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
 	@PostMapping(value="/registrar")
-	public void nuevoPuesto(@ModelAttribute("nuevo_puesto") Puesto puesto, Model model) {
+	public RedirectView  nuevoPuesto(@ModelAttribute("nuevo_puesto") Puesto puesto, Model model) {
 
 		List<Puesto> puestos =repository.findAll();
 		
@@ -121,8 +132,57 @@ public class PuestoController {
 		
 	
 		System.out.println(" Se ha creado un puesto nuevo: " + puesto.getId());
-		
+		return new RedirectView("/ver_puestos");
 	}
+	
+	
+	
+	//Borrar puesto
+    @CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
+    @DeleteMapping("/{id}")
+    public ResponseEntity<HttpStatus> remove(@PathVariable("id") int id) {
+        Puesto puesto = repository.getPuestoByid(id);
+        if (puesto == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }else {
+        	
+        	repository.delete(puesto);
+        	
+        	List<Puesto>puestos=repository.findAll();
+        	
+        	for(Puesto p: puestos) {
+        		if(p.getId()>id) {
+        			repository.delete(p);
+        			p.setId(p.getId()-1);
+        			repository.save(p);
+        		}
+        	}
+        	
+        	
+    		System.out.println(" Se ha borrado un puesto: "+puesto.getId());
+        	return new ResponseEntity<>(HttpStatus.OK);
+        }
+
+    }
+    
+    
+    @CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
+    @PostMapping("/reiniciar_todos")
+    public ResponseEntity<HttpStatus> ReiniciarTodos() {
+        List<Puesto> puestos = repository.findAll();
+
+        	for(Puesto p: puestos) {
+        		repository.delete(p);
+        		p.setReservasDefault();
+        		repository.save(p);
+        	}
+        	
+        	
+    		System.out.println(" Se han reiniciado todos los horarios");
+        	return new ResponseEntity<>(HttpStatus.OK);
+        
+
+    }
 	
 
 }

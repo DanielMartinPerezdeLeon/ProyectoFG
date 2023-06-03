@@ -36,12 +36,12 @@ public class RegistrarController {
 	public String registrarUsuario(@ModelAttribute("nuevo_usuario") Usuario usuario, Model model) {
 		try {
 
-			Usuario encontrado = (Usuario) repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
+			Usuario encontrado = repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
 			
 			//Si existe un usuario con ese identificador
 			if (encontrado != null) {
 				System.out.println("Se ha intentado registrar un usuario ya creado: " + usuario.getIdentificacion());
-				model.addAttribute("error",new String("Esa identaficación ya existe"));
+				model.addAttribute("error","Esa identificación ya existe");
 				return "registrarse";
 				
 			//sino
@@ -57,7 +57,7 @@ public class RegistrarController {
 	    //EXCEPCION
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			model.addAttribute("error", new String("Error, grave, póngase en contacto con su administrador"));
+			model.addAttribute("error", "Error, grave, póngase en contacto con su administrador");
 			return ("/error");
 		}
 

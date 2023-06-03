@@ -1,0 +1,289 @@
+2023-06-03T20:40:50.439+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Starting BookingApp using Java 17.0.6 with PID 148350 (/home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp/target/classes started by mintmate in /home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp)
+2023-06-03T20:40:50.439+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : No active profile set, falling back to 1 default profile: "default"
+2023-06-03T20:40:50.560+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:40:50.560+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-06-03T20:40:50.563+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.PuestoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:40:50.564+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.UsuarioRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:40:50.564+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JDBC repository interfaces.
+2023-06-03T20:40:50.566+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:40:50.566+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-03T20:40:50.573+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 2 JPA repository interfaces.
+2023-06-03T20:40:50.614+02:00  INFO 148350 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-03T20:40:50.619+02:00  INFO 148350 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-06-03T20:40:50.654+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-03T20:40:50.655+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-03T20:40:50.655+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-03T20:40:50.661+02:00  INFO 148350 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-03T20:40:50.661+02:00  INFO 148350 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 221 ms
+2023-06-03T20:40:50.686+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-32 - Starting...
+2023-06-03T20:40:50.695+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-32 - Added connection com.mysql.cj.jdbc.ConnectionImpl@592f1b2b
+2023-06-03T20:40:50.696+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-32 - Start completed.
+2023-06-03T20:40:50.719+02:00  INFO 148350 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-03T20:40:50.726+02:00  INFO 148350 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-06-03T20:40:50.760+02:00  INFO 148350 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-03T20:40:50.761+02:00  INFO 148350 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:40:50.943+02:00  WARN 148350 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-03T20:40:51.040+02:00  INFO 148350 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-03T20:40:51.153+02:00  INFO 148350 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-03T20:40:51.164+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T20:40:51.168+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Started BookingApp in 0.745 seconds (process running for 4295.812)
+2023-06-03T20:40:51.169+02:00  INFO 148350 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-03T20:40:51.169+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Aplicacion iniciada: 20:40:51.169532111
+2023-06-03T20:42:02.671+02:00  INFO 148350 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-03T20:42:02.673+02:00  INFO 148350 --- [Thread-126] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-03T20:42:02.675+02:00  WARN 148350 --- [Thread-126] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-32 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:42:02.676+02:00  WARN 148350 --- [Thread-126] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [spring-session-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:42:02.680+02:00  INFO 148350 --- [Thread-126] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:42:02.681+02:00  INFO 148350 --- [Thread-126] com.zaxxer.hikari.HikariDataSource       : HikariPool-32 - Shutdown initiated...
+2023-06-03T20:42:02.685+02:00  INFO 148350 --- [Thread-126] com.zaxxer.hikari.HikariDataSource       : HikariPool-32 - Shutdown completed.
+2023-06-03T20:42:02.777+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Starting BookingApp using Java 17.0.6 with PID 148350 (/home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp/target/classes started by mintmate in /home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp)
+2023-06-03T20:42:02.777+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : No active profile set, falling back to 1 default profile: "default"
+2023-06-03T20:42:02.925+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:42:02.926+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-06-03T20:42:02.928+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.PuestoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:42:02.928+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.UsuarioRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:42:02.929+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+2023-06-03T20:42:02.931+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:42:02.931+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-03T20:42:02.935+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 2 JPA repository interfaces.
+2023-06-03T20:42:02.975+02:00  INFO 148350 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-03T20:42:02.975+02:00  INFO 148350 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-06-03T20:42:03.015+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-03T20:42:03.016+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-03T20:42:03.016+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-03T20:42:03.023+02:00  INFO 148350 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-03T20:42:03.023+02:00  INFO 148350 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 241 ms
+2023-06-03T20:42:03.046+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Starting...
+2023-06-03T20:42:03.054+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-33 - Added connection com.mysql.cj.jdbc.ConnectionImpl@78b76730
+2023-06-03T20:42:03.054+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Start completed.
+2023-06-03T20:42:03.075+02:00  INFO 148350 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-03T20:42:03.080+02:00  INFO 148350 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-06-03T20:42:03.124+02:00  INFO 148350 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-03T20:42:03.124+02:00  INFO 148350 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:42:03.231+02:00  WARN 148350 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-03T20:42:03.299+02:00  INFO 148350 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-03T20:42:03.400+02:00  INFO 148350 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-03T20:42:03.413+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T20:42:03.417+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Started BookingApp in 0.659 seconds (process running for 4368.061)
+2023-06-03T20:42:03.418+02:00  INFO 148350 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-03T20:42:03.419+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Aplicacion iniciada: 20:42:03.418947773
+2023-06-03T20:42:27.839+02:00  INFO 148350 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-03T20:42:27.842+02:00  INFO 148350 --- [Thread-130] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-03T20:42:27.844+02:00  WARN 148350 --- [Thread-130] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-33 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:42:27.844+02:00  WARN 148350 --- [Thread-130] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [spring-session-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:42:27.847+02:00  INFO 148350 --- [Thread-130] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:42:27.848+02:00  INFO 148350 --- [Thread-130] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Shutdown initiated...
+2023-06-03T20:42:27.851+02:00  INFO 148350 --- [Thread-130] com.zaxxer.hikari.HikariDataSource       : HikariPool-33 - Shutdown completed.
+2023-06-03T20:42:27.940+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Starting BookingApp using Java 17.0.6 with PID 148350 (/home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp/target/classes started by mintmate in /home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp)
+2023-06-03T20:42:27.941+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : No active profile set, falling back to 1 default profile: "default"
+2023-06-03T20:42:28.061+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:42:28.061+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-06-03T20:42:28.064+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.PuestoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:42:28.065+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.UsuarioRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:42:28.065+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JDBC repository interfaces.
+2023-06-03T20:42:28.067+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:42:28.067+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-03T20:42:28.072+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 2 JPA repository interfaces.
+2023-06-03T20:42:28.114+02:00  INFO 148350 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-03T20:42:28.114+02:00  INFO 148350 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-06-03T20:42:28.149+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-03T20:42:28.149+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-03T20:42:28.149+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-03T20:42:28.156+02:00  INFO 148350 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-03T20:42:28.156+02:00  INFO 148350 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 214 ms
+2023-06-03T20:42:28.179+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Starting...
+2023-06-03T20:42:28.186+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-34 - Added connection com.mysql.cj.jdbc.ConnectionImpl@409d1cc3
+2023-06-03T20:42:28.186+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Start completed.
+2023-06-03T20:42:28.257+02:00  INFO 148350 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-03T20:42:28.263+02:00  INFO 148350 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-06-03T20:42:28.310+02:00  INFO 148350 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-03T20:42:28.310+02:00  INFO 148350 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:42:28.439+02:00  WARN 148350 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-03T20:42:28.499+02:00  INFO 148350 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-03T20:42:28.603+02:00  INFO 148350 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-03T20:42:28.624+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T20:42:28.629+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Started BookingApp in 0.703 seconds (process running for 4393.273)
+2023-06-03T20:42:28.630+02:00  INFO 148350 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-03T20:42:28.631+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Aplicacion iniciada: 20:42:28.630894989
+2023-06-03T20:43:14.071+02:00  INFO 148350 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-03T20:43:14.073+02:00  INFO 148350 --- [Thread-134] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-03T20:43:14.074+02:00  WARN 148350 --- [Thread-134] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-34 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:43:14.074+02:00  WARN 148350 --- [Thread-134] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [spring-session-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:43:14.077+02:00  INFO 148350 --- [Thread-134] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:43:14.078+02:00  INFO 148350 --- [Thread-134] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Shutdown initiated...
+2023-06-03T20:43:14.081+02:00  INFO 148350 --- [Thread-134] com.zaxxer.hikari.HikariDataSource       : HikariPool-34 - Shutdown completed.
+2023-06-03T20:43:14.169+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Starting BookingApp using Java 17.0.6 with PID 148350 (/home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp/target/classes started by mintmate in /home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp)
+2023-06-03T20:43:14.169+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : No active profile set, falling back to 1 default profile: "default"
+2023-06-03T20:43:14.290+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:43:14.290+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-06-03T20:43:14.293+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.PuestoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:43:14.293+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.UsuarioRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:43:14.294+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 0 JDBC repository interfaces.
+2023-06-03T20:43:14.297+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:43:14.297+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-03T20:43:14.300+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 2 JPA repository interfaces.
+2023-06-03T20:43:14.348+02:00  INFO 148350 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-03T20:43:14.349+02:00  INFO 148350 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-06-03T20:43:14.390+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-03T20:43:14.392+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-03T20:43:14.392+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-03T20:43:14.398+02:00  INFO 148350 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-03T20:43:14.398+02:00  INFO 148350 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 227 ms
+2023-06-03T20:43:14.427+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Starting...
+2023-06-03T20:43:14.434+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-35 - Added connection com.mysql.cj.jdbc.ConnectionImpl@27df878e
+2023-06-03T20:43:14.435+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Start completed.
+2023-06-03T20:43:14.462+02:00  INFO 148350 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-03T20:43:14.468+02:00  INFO 148350 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-06-03T20:43:14.488+02:00  INFO 148350 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-03T20:43:14.488+02:00  INFO 148350 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:43:14.594+02:00  WARN 148350 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-03T20:43:14.659+02:00  INFO 148350 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-03T20:43:14.772+02:00  INFO 148350 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-03T20:43:14.784+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T20:43:14.789+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Started BookingApp in 0.641 seconds (process running for 4439.433)
+2023-06-03T20:43:14.790+02:00  INFO 148350 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-03T20:43:14.791+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Aplicacion iniciada: 20:43:14.790918306
+2023-06-03T20:43:17.176+02:00  INFO 148350 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-03T20:43:17.178+02:00  INFO 148350 --- [Thread-138] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-03T20:43:17.180+02:00  WARN 148350 --- [Thread-138] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-35 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:43:17.180+02:00  WARN 148350 --- [Thread-138] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [spring-session-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:43:17.181+02:00  WARN 148350 --- [Thread-138] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-35 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:43:17.184+02:00  INFO 148350 --- [Thread-138] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:43:17.185+02:00  INFO 148350 --- [Thread-138] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Shutdown initiated...
+2023-06-03T20:43:17.188+02:00  INFO 148350 --- [Thread-138] com.zaxxer.hikari.HikariDataSource       : HikariPool-35 - Shutdown completed.
+2023-06-03T20:43:17.279+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Starting BookingApp using Java 17.0.6 with PID 148350 (/home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp/target/classes started by mintmate in /home/mintmate/Desktop/proyecto/ProyectoFG/booking_webapp)
+2023-06-03T20:43:17.280+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : No active profile set, falling back to 1 default profile: "default"
+2023-06-03T20:43:17.389+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:43:17.389+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2023-06-03T20:43:17.391+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.PuestoRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:43:17.392+02:00  INFO 148350 --- [restartedMain] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.booking.repository.UsuarioRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2023-06-03T20:43:17.392+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 2 ms. Found 0 JDBC repository interfaces.
+2023-06-03T20:43:17.394+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2023-06-03T20:43:17.394+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-03T20:43:17.397+02:00  INFO 148350 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 3 ms. Found 2 JPA repository interfaces.
+2023-06-03T20:43:17.438+02:00  INFO 148350 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-03T20:43:17.438+02:00  INFO 148350 --- [restartedMain] .w.s.a.s.AnnotationActionEndpointMapping : Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2023-06-03T20:43:17.471+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-03T20:43:17.471+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-03T20:43:17.472+02:00  INFO 148350 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.8]
+2023-06-03T20:43:17.478+02:00  INFO 148350 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-06-03T20:43:17.478+02:00  INFO 148350 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 197 ms
+2023-06-03T20:43:17.499+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Starting...
+2023-06-03T20:43:17.508+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-36 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5476104d
+2023-06-03T20:43:17.508+02:00  INFO 148350 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Start completed.
+2023-06-03T20:43:17.580+02:00  INFO 148350 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-03T20:43:17.585+02:00  INFO 148350 --- [restartedMain] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-06-03T20:43:17.612+02:00  INFO 148350 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-03T20:43:17.612+02:00  INFO 148350 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:43:17.741+02:00  WARN 148350 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-03T20:43:17.806+02:00  INFO 148350 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2023-06-03T20:43:17.901+02:00  INFO 148350 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-06-03T20:43:17.913+02:00  INFO 148350 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-03T20:43:17.918+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Started BookingApp in 0.656 seconds (process running for 4442.562)
+2023-06-03T20:43:17.919+02:00  INFO 148350 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-06-03T20:43:17.920+02:00  INFO 148350 --- [restartedMain] com.booking.BookingApp                   : Aplicacion iniciada: 20:43:17.920042242
+2023-06-03T20:43:27.315+02:00  INFO 148350 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2023-06-03T20:43:27.317+02:00  INFO 148350 --- [Thread-142] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-06-03T20:43:27.319+02:00  WARN 148350 --- [Thread-142] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HikariPool-36 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:43:27.320+02:00  WARN 148350 --- [Thread-142] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [spring-session-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.6/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.6/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.6/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.6/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.6/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.6/java.lang.Thread.run(Thread.java:833)
+2023-06-03T20:43:27.323+02:00  INFO 148350 --- [Thread-142] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-03T20:43:27.324+02:00  INFO 148350 --- [Thread-142] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Shutdown initiated...
+2023-06-03T20:43:27.327+02:00  INFO 148350 --- [Thread-142] com.zaxxer.hikari.HikariDataSource       : HikariPool-36 - Shutdown completed.

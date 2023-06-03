@@ -50,6 +50,9 @@
 								<li class="nav-item"><a class="nav-link active" aria-current="page" href="/ver_usuarios">Usuarios</a></li>
 								<li class="nav-item"><a class="nav-link" href="/ver_puestos">Puestos</a></li>
 							</th:block>
+							<th:block th:if="${usuario.rol > 2}">
+								<li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+							</th:block>
 						</ul>
 					</div>
 				</div>

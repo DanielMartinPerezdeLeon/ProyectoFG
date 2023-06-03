@@ -33,10 +33,10 @@ public class IniciarSesionController {
 			//TODO todos los loggers
 			
 			//siel usuario no existe en DB
-			if (encontrado == null || usuario == null) {
+			if (encontrado == null) {
 				System.out.println("Se ha intentado sacar un usuario no existente " + (usuario.getIdentificacion()));
-				model.addAttribute("error",new String("Esa identificación no existe, por favor, revise los datos o contacte un administrador"));
-				return "index"; // TODO 
+				model.addAttribute("error","Esa identificación no existe, por favor, revise los datos o contacte un administrador");
+				return "index";
 				
 			//si existe
 			} else {
@@ -44,7 +44,7 @@ public class IniciarSesionController {
 				//Si contraseña incorrecta
 				if(encontrado.ContrasenaDescodificada().equalsIgnoreCase(usuario.getContrasena())==false) {
 					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getContrasena())+" "+encontrado.ContrasenaDescodificada());
-					model.addAttribute("error",new String("Contraseña incorrecta"));
+					model.addAttribute("error","Contraseña incorrecta");
 					return "index";
 				}
 				
@@ -58,7 +58,7 @@ public class IniciarSesionController {
 		} catch (Exception t) {
 			System.out.println(t.getMessage());
 			// TODO logger
-			model.addAttribute("error", new String("error grave, pongase en contacto con su administrador"));
+			model.addAttribute("error", "error grave, pongase en contacto con su administrador");
 			return "error"; // TODO página /error
 		}
 	}
@@ -89,7 +89,7 @@ public class IniciarSesionController {
 		//excepcion
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			model.addAttribute("error", new String("Error, grave, póngase en contacto con su administrador"));
+			model.addAttribute("error","Error, grave, póngase en contacto con su administrador");
 			return ("error");
 		}
 	}
