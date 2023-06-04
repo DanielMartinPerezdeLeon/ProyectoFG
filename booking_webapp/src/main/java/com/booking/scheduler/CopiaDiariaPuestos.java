@@ -22,6 +22,11 @@ public class CopiaDiariaPuestos {
 	
 	@Autowired
 	private PuestoRepository repository;
+	
+	
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(CopiaDiariaPuestos.class);
+	
+	
 
 	//Copia los puestos actuales a las Y REINICIA todos los horarios
 	@Scheduled(cron = "30 59 23 * * *") //segundo:30 minuto:59 hora:23 dias:todos meses:todos
@@ -43,21 +48,14 @@ public class CopiaDiariaPuestos {
 			File file = new File(ruta+nombre);
 			
 			if(file.createNewFile()) {	//Cierra solo el file, ta bien
-				try(FileWriter output= new FileWriter(file)){
-				
-				JSONArray array= new JSONArray(repository.findAll());
-				
-				output.write(array.toString());
-				
-				}catch(IOException e) {
-					System.err.println(e);
-				}
+				escribirJSON(file);
 			}
 			
 			
 			
 		}catch(Exception e) {
 			System.err.println(e);
+			log.error("Error grave: "+e.getMessage());
 		}
 		
 		
@@ -69,7 +67,24 @@ public class CopiaDiariaPuestos {
 			puesto.setReservasDefault();
 			repository.save(puesto);
 		}
+		
+		System.out.println("Se ha guardado y reiniciado los horarios del dia ("+formattedDateTime+")");
+		log.info("Se ha guardado y reiniciado los horarios del dia ("+formattedDateTime+")");
 				
+	}
+	
+	
+	public void escribirJSON(File file) {
+		try(FileWriter output= new FileWriter(file)){
+			
+			JSONArray array= new JSONArray(repository.findAll());
+			
+			output.write(array.toString());
+			
+			}catch(IOException e) {
+				System.err.println(e);
+				log.error("Error grave: "+e.getMessage());
+			}
 	}
 	
 

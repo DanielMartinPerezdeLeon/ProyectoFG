@@ -29,21 +29,30 @@ public class UsuarioController {
     private UsuarioRepository repository;
 	
 
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(UsuarioController.class);
+	
+	
+	private static final String URLBASE = "http://localhost:8080";
+	
+
     @GetMapping(value="/todos")
     public ResponseEntity<List<Usuario>> getAll() {
         List<Usuario> usuarios = repository.findAll();
         
+        log.info("Alguien ha accedido a la información de todos los usuarios");
         
         return new ResponseEntity<>(usuarios, HttpStatus.OK);
     }
     
     
-    @CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
+    @CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
     @PostMapping(value = "/cambiar_rol")
 	public ResponseEntity<HttpStatus> reservar(@RequestBody DatosCambiarRol datos) {
 		Usuario usuario = repository.getUsuarioByIdentificacion(datos.getUsuario());
 		
 		if(usuario==null) {
+			log.info("Alguien ha intentado cambiar el rol de un usuario no existente" + datos.getUsuario());
+			
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}else {
 
@@ -56,23 +65,29 @@ public class UsuarioController {
 		
 		repository.save(usuario);
 	
-		System.out.println(" Se ha aceptado un usuario nuevo: "+datos.getUsuario());
+		System.out.println("Se ha aceptado un usuario nuevo: "+datos.getUsuario());
+		log.info("Se ha aceptado un usuario nuevo: "+datos.getUsuario());
+		
 		return new ResponseEntity<>(HttpStatus.OK);
 		}
 	}
 
     
     //Borrar Usuario
-    @CrossOrigin(origins = "http://localhost:8080") //CROSS origin para hacerlo seguro
+    @CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> remove(@PathVariable("id") String id) {
         Usuario usuario = repository.getUsuarioByIdentificacion(id);
         if (usuario == null) {
+        	log.info("Se ha intentado eliminar un usuario no existente" + id);
+        	
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }else {
         	repository.delete(usuario);
         	
+        	log.info("Se ha borrado un usuario: "+ usuario.getIdentificacion());
     		System.out.println(" Se ha borrado un usuario: "+usuario.getIdentificacion());
+    		
         	return new ResponseEntity<>(HttpStatus.OK);
         }
 

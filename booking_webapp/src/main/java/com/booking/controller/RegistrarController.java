@@ -22,6 +22,9 @@ public class RegistrarController {
 	private UsuarioRepository repository;
 	
 	
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(RegistrarController.class);
+	
+	
 	
 	//Ir a registrar
 	@GetMapping(value = "/registrarse")
@@ -42,6 +45,8 @@ public class RegistrarController {
 			if (encontrado != null) {
 				System.out.println("Se ha intentado registrar un usuario ya creado: " + usuario.getIdentificacion());
 				model.addAttribute("error","Esa identificación ya existe");
+				log.info("Se ha intentado registrar un usuario con una identificación ya existente: "+usuario.getIdentificacion());
+				
 				return "registrarse";
 				
 			//sino
@@ -50,7 +55,10 @@ public class RegistrarController {
 				usuario.setRol(0);
 				usuario.setContrasena(new String(Base64.getEncoder().encode(usuario.getContrasena().getBytes()))); // CODIFICA LA CONTRASEÑA
 				repository.save(usuario);
+				
 				System.out.println("Se ha registrado un nuevo usuario: " + usuario.getIdentificacion());
+				log.info("Se ha registrado un nuevo usuario: " + usuario.getIdentificacion());
+				
 				return "usuario_registrado"; 
 			}
 		
@@ -58,6 +66,8 @@ public class RegistrarController {
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 			model.addAttribute("error", "Error, grave, póngase en contacto con su administrador");
+			log.error("Error grave: "+e.getMessage());
+			
 			return ("/error");
 		}
 

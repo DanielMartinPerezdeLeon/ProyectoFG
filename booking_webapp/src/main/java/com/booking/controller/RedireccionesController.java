@@ -164,7 +164,7 @@ public class RedireccionesController {
 			if(usuario != null && !usuario.getIdentificacion().isEmpty() && usuario.getRol()>1) {
 				URL urljson;
 				try {
-					urljson = new URL("http://localhost:8080/usuarios/todos");
+					urljson = new URL(BASEURL+"/usuarios/todos");
 				} catch (MalformedURLException e) {
 					
 					model.addAttribute("error", ERRORJSON);
@@ -257,7 +257,7 @@ public class RedireccionesController {
 					
 					
 					try {
-						urljson = new URL("http://localhost:8080/usuarios/todos");
+						urljson = new URL(BASEURL+"/usuarios/todos");
 					} catch (MalformedURLException e) {
 
 						model.addAttribute("error", ERRORJSON);

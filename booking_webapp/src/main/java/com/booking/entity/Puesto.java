@@ -2,10 +2,6 @@ package com.booking.entity;
 
 import jakarta.persistence.*;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 
 @Entity
 @Table(name = "puestos")
