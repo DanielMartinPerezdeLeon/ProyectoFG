@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.booking.entity.Usuario;
 import com.booking.repository.UsuarioRepository;
 
-import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -22,8 +21,9 @@ public class RegistrarController {
 	@Autowired
 	private UsuarioRepository repository;
 	
-	@Autowired
-    private HttpSession httpSession;
+	
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(RegistrarController.class);
+	
 	
 	
 	//Ir a registrar
@@ -39,12 +39,14 @@ public class RegistrarController {
 	public String registrarUsuario(@ModelAttribute("nuevo_usuario") Usuario usuario, Model model) {
 		try {
 
-			Usuario encontrado = (Usuario) repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
+			Usuario encontrado = repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
 			
 			//Si existe un usuario con ese identificador
 			if (encontrado != null) {
 				System.out.println("Se ha intentado registrar un usuario ya creado: " + usuario.getIdentificacion());
-				model.addAttribute("error",new String("Esa identaficación ya existe"));
+				model.addAttribute("error","Esa identificación ya existe");
+				log.info("Se ha intentado registrar un usuario con una identificación ya existente: "+usuario.getIdentificacion());
+				
 				return "registrarse";
 				
 			//sino
@@ -53,15 +55,19 @@ public class RegistrarController {
 				usuario.setRol(0);
 				usuario.setContrasena(new String(Base64.getEncoder().encode(usuario.getContrasena().getBytes()))); // CODIFICA LA CONTRASEÑA
 				repository.save(usuario);
+				
 				System.out.println("Se ha registrado un nuevo usuario: " + usuario.getIdentificacion());
-				return "usuario_registrado"; // TODO página indicando que se ha registrado correctamente y espere a que
-												// el administrador le acepte
+				log.info("Se ha registrado un nuevo usuario: " + usuario.getIdentificacion());
+				
+				return "usuario_registrado"; 
 			}
 		
 	    //EXCEPCION
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			model.addAttribute("error", new String("Error, grave, póngase en contacto con su administrador"));
+			model.addAttribute("error", "Error, grave, póngase en contacto con su administrador");
+			log.error("Error grave: "+e.getMessage());
+			
 			return ("/error");
 		}
 

@@ -50,6 +50,9 @@
 								<li class="nav-item"><a class="nav-link" href="/ver_usuarios">Usuarios</a></li>
 								<li class="nav-item"><a class="nav-link" href="/ver_puestos">Puestos</a></li>
 							</th:block>
+							<th:block th:if="${usuario.rol > 2}">
+								<li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+							</th:block>
 						</ul>
 					</div>
 				</div>
@@ -91,7 +94,8 @@
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<table class="table" id="tabla">
+							<!--  tabla con las horas -->
+							<table class="table" id="tabla" title="tabla_horas">
 								<thead>
 									<tr>
 										<th>Hora</th>
@@ -169,12 +173,17 @@
 
 
 						<div class="col" th:each="puesto: ${puestos}">
+						
+						
+						
 							<div class="card shadow-sm">
 								<div class="card-body" th:with="i=${puesto.get('id')-1}">
 									<h2>
 										<span th:text='${puesto.get("tipo")}'></span>: <span
 											th:text='${puesto.get("id")}'></span>
 									</h2>
+									
+								<th:block th:if="${puesto.get('estado')==true}">	
 									<th:block th:with="horas_libres=${horas[i]}">
 										<th:block th:switch="${horas_libres}">
 											<p class="card-text">
@@ -188,8 +197,20 @@
 										<button type="button" class="btn btn-sm btn-outline-secondary"
 											th:id='${puesto.get("id")}' onclick="verpuesto(this.id)">Ver</button>
 									</div>
+								</th:block>	
+								
+								<th:block th:if="${puesto.get('estado')==false}">
+									<p class="card-text mb-5">
+									
+										No disponible
+									</p>
+								</th:block>
+								
 								</div>
 							</div>
+							
+							
+							
 						</div>
 
 

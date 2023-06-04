@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.booking.BookingApp;
 import com.booking.entity.Usuario;
 import com.booking.repository.UsuarioRepository;
 
@@ -21,6 +22,12 @@ public class IniciarSesionController {
 	
 	@Autowired
 	private UsuarioRepository repository;
+	
+	
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(IniciarSesionController.class);
+	
+	static final String ERRORLOGEO= "Alguien ha intentado logearse incorrectamente";
+
 
 	
 	// INICIAR SAESION
@@ -30,27 +37,41 @@ public class IniciarSesionController {
 
 			Usuario encontrado = repository.getUsuarioByIdentificacion(usuario.getIdentificacion());
 			
-			//TODO todos los loggers
 			
 			//siel usuario no existe en DB
-			if (encontrado == null || usuario == null) {
+			if (encontrado == null) {
 				System.out.println("Se ha intentado sacar un usuario no existente " + (usuario.getIdentificacion()));
-				model.addAttribute("error",new String("Esa identificación no existe, por favor, revise los datos o contacte un administrador"));
-				return "index"; // TODO 
+				model.addAttribute("error","Esa identificación no existe, por favor, revise los datos o contacte un administrador");
+				log.info("Se ha intentado sacar un usuario no existente " + (usuario.getIdentificacion()));
+				
+				return "index";
 				
 			//si existe
 			} else {
 				
 				//Si contraseña incorrecta
 				if(encontrado.ContrasenaDescodificada().equalsIgnoreCase(usuario.getContrasena())==false) {
-					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getContrasena())+" "+encontrado.ContrasenaDescodificada());
-					model.addAttribute("error",new String("Contraseña incorrecta"));
+					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getIdentificacion()));
+					model.addAttribute("error","Contraseña incorrecta");
+					log.info("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getIdentificacion()));
+					
+					return "index";
+				}
+				
+				
+				//Si su rol es 0 (no está aceptado)
+				if(encontrado.getRol()<1) {
+					System.out.println("Se ha intentado logear un usuario aun no aceptado: " + (usuario.getIdentificacion()));
+					model.addAttribute("error","Su cuenta todavía no ha sido aceptada, contacte con un manager o administrador");
+					log.info("Se ha intentado logear un usuario aun no aceptado: " + (usuario.getIdentificacion()));
+					
 					return "index";
 				}
 				
 				session.setAttribute("usuario", encontrado);
 				model.addAttribute("usuario",encontrado); 	//Pone al encontrado como usuario en el modelo
 				System.out.println(encontrado.getNombre());
+				
 				return "redirect:/home";
 			}
 		
@@ -58,7 +79,9 @@ public class IniciarSesionController {
 		} catch (Exception t) {
 			System.out.println(t.getMessage());
 			// TODO logger
-			model.addAttribute("error", new String("error grave, pongase en contacto con su administrador"));
+			model.addAttribute("error", "error grave, pongase en contacto con su administrador");
+			log.error("Error grave: "+usuario.getIdentificacion()+" - "+t.getMessage());
+			
 			return "error"; // TODO página /error
 		}
 	}
@@ -71,10 +94,14 @@ public class IniciarSesionController {
 			Usuario usu = (Usuario) session.getAttribute("usuario");
 			//Si se va a salir de usuario_registrado
 			if (usu == null || usu.getIdentificacion().isEmpty()) {
-				System.out.println("Alguien no logeado va a salir (volver a inicio?)");
+				System.out.println("Alguien no logeado va a salir (volver a inicio)");
+				log.info("Alguien no logeado va a salir (volver a inicio)");
+				
 			//Si el usuario estaba logeado
 			} else {
 				System.out.println("Un usuario se va ha desconectar: " + usu.getIdentificacion());
+				log.info("Un usuario se va ha desconectar: " + usu.getIdentificacion());
+				
 			}
 			
 			session.setAttribute("usuario", null);
@@ -89,7 +116,9 @@ public class IniciarSesionController {
 		//excepcion
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
-			model.addAttribute("error", new String("Error, grave, póngase en contacto con su administrador"));
+			model.addAttribute("error","Error, grave, póngase en contacto con su administrador");
+			log.error("Error grave:  - "+e.getMessage());
+			
 			return ("error");
 		}
 	}

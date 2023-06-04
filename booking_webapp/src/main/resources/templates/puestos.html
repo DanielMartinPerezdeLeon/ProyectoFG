@@ -44,11 +44,12 @@
 				<div class="collapse navbar-collapse " id="header_menu">
 					<div class="collapse navbar-collapse" id="navbarColor02">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-							<li class="nav-item"><a class="nav-link"
-								aria-current="page" href="/home">Reservar</a></li>
+							<li class="nav-item"><a class="nav-link" href="/home">Reservar</a></li>
 							<th:block th:if="${usuario.rol > 1}">
-								<li class="nav-item"><a class="nav-link active" aria-current="page" href="/ver_usuarios">Usuarios</a></li>
-								<li class="nav-item"><a class="nav-link" href="/ver_puestos">Puestos</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="/ver_usuarios">Usuarios</a></li>
+								<li class="nav-item"><a class="nav-link active"
+									aria-current="page" href="/ver_puestos">Puestos</a></li>
 							</th:block>
 							<th:block th:if="${usuario.rol > 2}">
 								<li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
@@ -75,14 +76,12 @@
 			<!-- Titulos -->
 			<h1 class="text-center">Booking WebAPP</h1>
 			<br /> <br />
-			<h2 class="text-center">
-				Lista de usuarios
-			</h2>
+			<h2 class="text-center">Lista de puestos</h2>
 			<br /> <br />
 
 
 
-			<!-- modal de los usuarios  (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
+			<!-- modal de los puestos  (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
 			<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
 				aria-labelledby="ModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
@@ -92,26 +91,24 @@
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
-						<div class="modal-body">
-							<table class="table" id="tabla">
-								<thead>
-									<tr>
-										<th>Identificación</th>
-										<th>Nombre</th>
-										<th>Apellidos</th>
-										<th>Rol</th>			
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-
-									</tr>
-								</tbody>
-							</table>
+						<div class="modal-body" id="modal-body">
+							<div class="form-check form-switch">
+								<input class="form-check-input" type="checkbox" role="switch"
+									id="flexSwitchCheckDefault" onclick="check()"> <label
+									class="form-check-label" for="flexSwitchCheckDefault"
+									id="label-switch">Activado</label>
+							</div>
+							<div>
+								<br />
+								<br />
+								<button type="button" class="btn btn-outline-danger"
+									id="reiniciar_horas" onclick="reiniciarHoras(this.id)">Reiniciar
+									Horas</button>
+							</div>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal">Ok</button>
+								data-bs-dismiss="modal" onclick="cambiarEstado(this.id);">Ok</button>
 						</div>
 					</div>
 				</div>
@@ -119,23 +116,57 @@
 
 
 
-			<!-- modal al aceptar (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
-			<div class="modal fade" id="ModalAceptar" tabindex="-1" role="dialog"
-				aria-labelledby="ModalLabel" aria-hidden="true">
+			<!-- modal de crear puestos (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
+			<div class="modal fade" id="ModalPuestoNuevo" tabindex="-1"
+				role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
-						<div class="modal-header" style="background-color: #00c800">
-							<h3 class="modal-title text-black" id="ModalLabel">Reserva</h3>
+						<div class="modal-header" style="background-color: #1790d0">
+							<h3 class="modal-title text-black" id="ModalLabel">Puesto
+								nuevo:</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
-						<div class="modal-body">
-							<p>Usuario aceptado</p>
-						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary"
-								data-bs-dismiss="modal" onclick="location.reload()">Ok</button>
-						</div>
+
+						<form action="#" id="nuevoPuestoForm"
+							th:action="@{/puestos/registrar}" method="post"
+							th:object="${nuevo_puesto}">
+							<div class="modal-body">
+
+
+
+								<!-- Tipo -->
+								<div>
+									<label>Tipo:</label>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" th:name="tipo"
+											id="radio1" value="Ordenador" th:field="*{tipo}" checked>
+										<label class="form-check-label" for="radio1">
+											Ordenador</label>
+									</div>
+									<div class="form-check">
+										<input class="form-check-input" type="radio" th:name="tipo"
+											id="radio2" value="Sala de reuniones" th:field="*{tipo}">
+										<label class="form-check-label" for="radio2"> Sala de
+											reuniones</label>
+									</div>
+								</div>
+
+								<div class="form-check">
+									<br /> <input id="estado" class="form-check-input"
+										type="checkbox" th:name="estado" th:field="*{estado}" /> <label
+										class="form-check-label" for="estado"> Estado</label>
+								</div>
+
+
+
+							</div>
+							<div class="modal-footer">
+								<button class="btn btn-secondary"
+									data-bs-dismiss="modal" id="creaPuesto" type="submit">Crear</button>
+							</div>
+
+						</form>
 					</div>
 				</div>
 			</div>
@@ -150,26 +181,41 @@
 
 
 
-						<div class="col" th:each="usuario: ${lista_usuarios}">
+						<div class="col" th:each="puesto: ${puestos}">
 							<div class="card shadow-sm">
-								<div class="card-body">
+								<div class="card-body" th:with="i=${puesto.get('id')-1}">
 									<h2>
-										<span th:text='${usuario.get("identificacion")}'></span>
+										<span th:text='${puesto.get("tipo")}'></span>: <span
+											th:text='${puesto.get("id")}'></span>
 									</h2>
-									<th:block th:with="rol=${usuario.get('rol')}">
-										<th:block th:switch="${rol}">
-											<p class="card-text">
-												<span th:case="0">No aceptado</span>
-												<span th:case="1">Usuario</span>
-												<span th:case="2">Manager</span>
-												<span th:case="3">Admin</span>
-											</p>
-										</th:block>
+
+
+									<th:block th:switch='${puesto.get("estado")}'>
+										<p class="card-text">
+											<span th:case="true">Activo</span> <span th:case="false">No
+												activo</span>
+										</p>
 									</th:block>
+
+
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary"
-											th:id='${usuario.get("identificacion")}' onclick="verusuario(this.id)">Ver</button>
+											th:id='${puesto.get("id")}' onclick="verpuesto(this.id)">Ver</button>
 									</div>
+								</div>
+							</div>
+						</div>
+
+
+						<div class="card shadow-sm">
+							<div class="card-body">
+								<h2>Puesto nuevo</h2>
+
+								<p class="card-text">Crear un puesto nuevo</p>
+
+								<div class="btn-group">
+									<button type="button" class="btn btn-sm btn-outline-secondary"
+										th:id='crear_nuevo' onclick="modalPuestoNuevo()">Crear</button>
 								</div>
 							</div>
 						</div>
@@ -205,9 +251,9 @@
 
 	<!-- js -->
 
-	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-	<script th:inline="javascript" type="text/javascript">var usuarios = [(${lista_usuarios})];</script>
-	<script type="text/javascript" th:src="@{/js/usuarios.js}"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/puestos.js}"></script>
 
 
 

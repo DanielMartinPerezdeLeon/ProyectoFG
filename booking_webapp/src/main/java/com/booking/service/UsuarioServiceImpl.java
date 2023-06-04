@@ -27,8 +27,7 @@ public class UsuarioServiceImpl implements UsuarioService{
 	}	
 	
 	
-	public List<Usuario> getAll() {	//Coge todos
-		//model.addAttribute("usuarios", repository.findAll()); //No es seguro
+	public List<Usuario> getAll() {
 		return repository.findAll();
 	}
 	

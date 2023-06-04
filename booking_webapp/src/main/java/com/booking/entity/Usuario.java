@@ -54,6 +54,7 @@ public class Usuario implements Serializable{
 		this.apellidos=apellido;
 		this.identificacion=identificacion;
 		this.contrasena=new String(Base64.getEncoder().encode(contrasena.getBytes()));
+		this.rol=rol;
 	}
 	
 	public Usuario(String identificacion, String contrasena) {

@@ -45,13 +45,15 @@
 					<div class="collapse navbar-collapse" id="navbarColor02">
 						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 							<li class="nav-item"><a class="nav-link"
-								aria-current="page" href="/home">Reservar</a></li>
+								 href="/home">Reservar</a></li>
 							<th:block th:if="${usuario.rol > 1}">
-								<li class="nav-item"><a class="nav-link active" aria-current="page" href="/ver_usuarios">Usuarios</a></li>
-								<li class="nav-item"><a class="nav-link" href="/ver_puestos">Puestos</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="/ver_usuarios">Usuarios</a></li>
+								<li class="nav-item"><a class="nav-link"
+									href="/ver_puestos">Puestos</a></li>
 							</th:block>
 							<th:block th:if="${usuario.rol > 2}">
-								<li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+								<li class="nav-item"><a class="nav-link active" href="/admin" aria-current="page">Admin</a></li>
 							</th:block>
 						</ul>
 					</div>
@@ -75,37 +77,45 @@
 			<!-- Titulos -->
 			<h1 class="text-center">Booking WebAPP</h1>
 			<br /> <br />
-			<h2 class="text-center">
-				Lista de usuarios
-			</h2>
+			<h2 class="text-center">Menú de administrador</h2>
 			<br /> <br />
 
 
 
-			<!-- modal de los usuarios  (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
-			<div class="modal fade" id="Modal" tabindex="-1" role="dialog"
+			<!-- modal de borrar usuarios  (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
+			<div class="modal fade" id="ModalBorrarUsuario" tabindex="-1" role="dialog"
 				aria-labelledby="ModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
-						<div class="modal-header" style="background-color: #1790d0">
-							<h3 class="modal-title text-black" id="ModalLabel">Error</h3>
+						<div class="modal-header" style="background-color:#FF2E2E">
+							<h3 class="modal-title text-black" id="ModalLabel">Borrar Usuario:</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
+							<!-- tabla datos usuario -->
 							<table class="table" id="tabla">
 								<thead>
 									<tr>
-										<th>Identificación</th>
+										<th>Usuario</th>
 										<th>Nombre</th>
 										<th>Apellidos</th>
-										<th>Rol</th>			
+										<th>Rol</th>
+										<th></th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-
-									</tr>
+									<th:block th:each="usuario : ${usuarios}">
+										<tr>
+											<td><span th:text="${usuario.get('identificacion')}"></span></td>
+											<td><span th:text="${usuario.get('nombre')}"></span></td>
+											<td><span th:text="${usuario.get('apellidos')}"></span></td>
+											<td><span th:text="${usuario.get('rol')}"></span></td>
+											<td><button type="button" class="btn btn-outline-danger" th:id="${usuario.get('identificacion')}" onclick="borrarUsuario(this.id)">
+												Borrar</button>
+											</td>
+										</tr>
+									</th:block>
 								</tbody>
 							</table>
 						</div>
@@ -119,18 +129,38 @@
 
 
 
-			<!-- modal al aceptar (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
-			<div class="modal fade" id="ModalAceptar" tabindex="-1" role="dialog"
+			<!-- modal al borrar puesto (los mensajes en si vienen de mi js, esto es sacado de bootstrap -->
+			<div class="modal fade" id="ModalBorrarPuesto" tabindex="-1" role="dialog"
 				aria-labelledby="ModalLabel" aria-hidden="true">
 				<div class="modal-dialog modal-dialog-centered" role="document">
 					<div class="modal-content">
-						<div class="modal-header" style="background-color: #00c800">
-							<h3 class="modal-title text-black" id="ModalLabel">Reserva</h3>
+						<div class="modal-header" style="background-color:#FF2E2E">
+							<h3 class="modal-title text-black" id="ModalLabel">Borrar Puesto</h3>
 							<button type="button" class="btn-close" data-bs-dismiss="modal"
 								aria-label="Close"></button>
 						</div>
 						<div class="modal-body">
-							<p>Usuario aceptado</p>
+							<!--  tabla con datos del puesto -->
+							<table class="table" id="tabla">
+								<thead>
+									<tr>
+										<th>Puesto</th>
+										<th>Tipo</th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<th:block th:each="puesto : ${puestos}">
+										<tr>
+											<td><span th:text="${puesto.get('id')}"></span></td>
+											<td><span th:text="${puesto.get('tipo')}"></span></td>
+											<td><button type="button" class="btn btn-outline-danger" th:id="${puesto.get('id')}" onclick="borrarPuesto(this.id)">
+												Borrar</button>
+											</td>
+										</tr>
+									</th:block>
+								</tbody>
+							</table>
 						</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
@@ -148,36 +178,59 @@
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"
 						id="elementos">
 
-
-
-						<div class="col" th:each="usuario: ${lista_usuarios}">
+						<div class="col">
 							<div class="card shadow-sm">
 								<div class="card-body">
-									<h2>
-										<span th:text='${usuario.get("identificacion")}'></span>
-									</h2>
-									<th:block th:with="rol=${usuario.get('rol')}">
-										<th:block th:switch="${rol}">
-											<p class="card-text">
-												<span th:case="0">No aceptado</span>
-												<span th:case="1">Usuario</span>
-												<span th:case="2">Manager</span>
-												<span th:case="3">Admin</span>
-											</p>
-										</th:block>
-									</th:block>
+									<h2>Borrar Usuario</h2>
+
+									<p class="card-text">Eliminar un usuario</p>
+
 									<div class="btn-group">
 										<button type="button" class="btn btn-sm btn-outline-secondary"
-											th:id='${usuario.get("identificacion")}' onclick="verusuario(this.id)">Ver</button>
+											th:id='btn_borrar_usuario' onclick="showModalBorrarUsuario()">Borrar</button>
 									</div>
 								</div>
 							</div>
 						</div>
 
 
+						<div class="col">
+							<div class="card shadow-sm">
+								<div class="card-body">
+									<h2>Borrar Puesto</h2>
+
+									<p class="card-text">Eliminar un puesto</p>
+
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary"
+											th:id='btn_borrar_puesto' onclick="showModalBorrarPuesto()">Borrar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						
+						<div class="col">
+							<div class="card shadow-sm">
+								<div class="card-body">
+									<h2>Reiniciar Horarios</h2>
+
+									<p class="card-text">Reinicia todos los horarios de los puestos</p>
+
+									<div class="btn-group">
+										<button type="button" class="btn btn-sm btn-outline-secondary"
+											th:id='btn_modificar_usuario' onclick="reiniciarHoras()">Reiniciar</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+
+
+
 					</div>
-
-
 				</div>
 			</div>
 	</main>
@@ -205,9 +258,9 @@
 
 	<!-- js -->
 
-	<script	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-	<script th:inline="javascript" type="text/javascript">var usuarios = [(${lista_usuarios})];</script>
-	<script type="text/javascript" th:src="@{/js/usuarios.js}"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" th:src="@{/js/admin.js}"></script>
 
 
 

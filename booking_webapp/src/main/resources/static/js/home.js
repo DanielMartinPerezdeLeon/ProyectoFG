@@ -5,7 +5,6 @@ window.history.replaceState(stateObj, "Booking WebApp", "/home");
 
 
 
-console.log(puestos);
 
 
 function cerrarSesion(){

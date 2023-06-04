@@ -133,3 +133,4 @@ function verusuario(id) {
 
     showModal(usu);
 }
+
