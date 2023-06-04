@@ -51,8 +51,20 @@ public class IniciarSesionController {
 				
 				//Si contraseña incorrecta
 				if(encontrado.ContrasenaDescodificada().equalsIgnoreCase(usuario.getContrasena())==false) {
-					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getContrasena())+" "+encontrado.ContrasenaDescodificada());
+					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getIdentificacion()));
 					model.addAttribute("error","Contraseña incorrecta");
+					log.info("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getIdentificacion()));
+					
+					return "index";
+				}
+				
+				
+				//Si su rol es 0 (no está aceptado)
+				if(encontrado.getRol()<1) {
+					System.out.println("Se ha intentado logear un usuario aun no aceptado: " + (usuario.getIdentificacion()));
+					model.addAttribute("error","Su cuenta todavía no ha sido aceptada, contacte con un manager o administrador");
+					log.info("Se ha intentado logear un usuario aun no aceptado: " + (usuario.getIdentificacion()));
+					
 					return "index";
 				}
 				

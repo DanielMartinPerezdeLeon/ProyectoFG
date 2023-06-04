@@ -281,5 +281,20 @@ public class RedireccionesController {
 				
 
 			}
+			
+			
+			//Página de error
+			@GetMapping("/error") 
+			public String moverError(Model model, HttpSession session) {
+				String error = (String)model.getAttribute("error");
+				
+				if(error==null) {
+					model.addAttribute("error","Error desconocido");
+				}else {
+					model.addAttribute(error);
+				}
+				
+				return "error";
+			}
 		
 }
