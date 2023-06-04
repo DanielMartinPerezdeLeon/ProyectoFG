@@ -173,12 +173,17 @@
 
 
 						<div class="col" th:each="puesto: ${puestos}">
+						
+						
+						
 							<div class="card shadow-sm">
 								<div class="card-body" th:with="i=${puesto.get('id')-1}">
 									<h2>
 										<span th:text='${puesto.get("tipo")}'></span>: <span
 											th:text='${puesto.get("id")}'></span>
 									</h2>
+									
+								<th:block th:if="${puesto.get('estado')==true}">	
 									<th:block th:with="horas_libres=${horas[i]}">
 										<th:block th:switch="${horas_libres}">
 											<p class="card-text">
@@ -192,8 +197,20 @@
 										<button type="button" class="btn btn-sm btn-outline-secondary"
 											th:id='${puesto.get("id")}' onclick="verpuesto(this.id)">Ver</button>
 									</div>
+								</th:block>	
+								
+								<th:block th:if="${puesto.get('estado')==false}">
+									<p class="card-text mb-5">
+									
+										No disponible
+									</p>
+								</th:block>
+								
 								</div>
 							</div>
+							
+							
+							
 						</div>
 
 

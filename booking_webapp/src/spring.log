@@ -3779,3 +3779,32 @@ Unconditional classes:
 2023-06-04T13:05:37.098+02:00  INFO 194065 --- [http-nio-8080-exec-5] c.b.controller.IniciarSesionController   : Un usuario se va ha desconectar: admin
 2023-06-04T13:05:39.990+02:00  INFO 194065 --- [http-nio-8080-exec-1] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
 2023-06-04T13:05:43.632+02:00  INFO 194065 --- [http-nio-8080-exec-5] c.b.controller.IniciarSesionController   : Un usuario se va ha desconectar: noacep
+2023-06-04T13:06:47.128+02:00  INFO 194065 --- [http-nio-8080-exec-5] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:06:51.594+02:00  INFO 194065 --- [http-nio-8080-exec-4] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:06:58.080+02:00  INFO 194065 --- [http-nio-8080-exec-9] c.booking.controller.PuestoController    : Se ha creado un puesto nuevo: 7
+2023-06-04T13:06:58.125+02:00  INFO 194065 --- [http-nio-8080-exec-5] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:06:59.669+02:00  INFO 194065 --- [http-nio-8080-exec-4] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:09:28.865+02:00  INFO 194065 --- [http-nio-8080-exec-10] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:09:31.508+02:00  INFO 194065 --- [http-nio-8080-exec-8] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:09:32.645+02:00  INFO 194065 --- [http-nio-8080-exec-3] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:09:44.296+02:00  INFO 194065 --- [http-nio-8080-exec-10] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:09:45.772+02:00  INFO 194065 --- [http-nio-8080-exec-8] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:09:47.142+02:00  INFO 194065 --- [http-nio-8080-exec-10] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:10:07.355+02:00  INFO 194065 --- [http-nio-8080-exec-2] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:11:08.157+02:00  INFO 194065 --- [http-nio-8080-exec-5] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:11:28.485+02:00  INFO 194065 --- [http-nio-8080-exec-8] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:12:59.479+02:00  INFO 194065 --- [http-nio-8080-exec-9] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:14:14.976+02:00  INFO 194065 --- [http-nio-8080-exec-1] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:14:24.491+02:00  INFO 194065 --- [http-nio-8080-exec-3] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:14:41.525+02:00  INFO 194065 --- [http-nio-8080-exec-10] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:14:46.649+02:00  INFO 194065 --- [http-nio-8080-exec-9] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:15:30.941+02:00  INFO 194065 --- [http-nio-8080-exec-6] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:15:37.683+02:00  INFO 194065 --- [http-nio-8080-exec-5] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:15:42.519+02:00  INFO 194065 --- [http-nio-8080-exec-2] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:16:03.542+02:00  INFO 194065 --- [http-nio-8080-exec-10] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:16:07.747+02:00  INFO 194065 --- [http-nio-8080-exec-9] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:16:18.033+02:00  INFO 194065 --- [http-nio-8080-exec-8] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:16:24.619+02:00  INFO 194065 --- [http-nio-8080-exec-5] c.booking.controller.UsuarioController   : Alguien ha accedido a la información de todos los usuarios
+2023-06-04T13:16:31.216+02:00  INFO 194065 --- [http-nio-8080-exec-2] c.booking.controller.PuestoController    : Se ha sacado información de todos los puestos
+2023-06-04T13:16:33.437+02:00  INFO 194065 --- [http-nio-8080-exec-4] c.booking.controller.UsuarioController   : Alguien ha accedido a la información de todos los usuarios
+2023-06-04T13:16:34.300+02:00  INFO 194065 --- [http-nio-8080-exec-9] c.booking.controller.UsuarioController   : Alguien ha accedido a la información de todos los usuarios
