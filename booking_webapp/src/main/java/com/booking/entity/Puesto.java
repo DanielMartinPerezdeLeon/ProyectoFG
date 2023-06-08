@@ -31,6 +31,13 @@ public class Puesto {
         this.tipo = tipo;
         setReservasDefault();
     }
+    
+    public Puesto(int id, boolean estado, String tipo, String reservas) {
+        this.id = id;
+        this.estado = estado;
+        this.tipo = tipo;
+        this.reservas=reservas;
+    }
 
     // Getters and setters
 
