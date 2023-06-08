@@ -18,80 +18,80 @@ import com.booking.entity.Usuario;
 import com.booking.entity.DatosJSON.DatosCambiarRol;
 import com.booking.repository.UsuarioRepository;
 
-
-
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 
 @RestController
 @RequestMapping("/usuarios")
+@Tag(name = "Usuarios")
 public class UsuarioController {
 
 	@Autowired
-    private UsuarioRepository repository;
-	
+	private UsuarioRepository repository;
 
 	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(UsuarioController.class);
-	
-	
-	private static final String URLBASE = "http://localhost:8080";
-	
 
-    @GetMapping(value="/todos")
-    public ResponseEntity<List<Usuario>> getAll() {
-        List<Usuario> usuarios = repository.findAll();
-        
-        log.info("Alguien ha accedido a la información de todos los usuarios");
-        
-        return new ResponseEntity<>(usuarios, HttpStatus.OK);
-    }
-    
-    
-    @CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
-    @PostMapping(value = "/cambiar_rol")
+	private static final String URLBASE = "http://localhost:8080";
+
+	
+	@Operation(summary="Devuelve datos de todos los usuarios")
+	@GetMapping(value = "/todos")
+	public ResponseEntity<List<Usuario>> getAll() {
+		List<Usuario> usuarios = repository.findAll();
+
+		log.info("Alguien ha accedido a la información de todos los usuarios");
+
+		return new ResponseEntity<>(usuarios, HttpStatus.OK);
+	}
+	
+	
+	@Operation(summary="Cambia el rol de un usuario")
+	@CrossOrigin(origins = URLBASE) // CROSS origin para hacerlo seguro
+	@PostMapping(value = "/cambiar_rol")
 	public ResponseEntity<HttpStatus> reservar(@RequestBody DatosCambiarRol datos) {
 		Usuario usuario = repository.getUsuarioByIdentificacion(datos.getUsuario());
-		
-		if(usuario==null) {
+
+		if (usuario == null) {
 			log.info("Alguien ha intentado cambiar el rol de un usuario no existente" + datos.getUsuario());
-			
+
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}else {
+		} else {
 
-		int nuevo_rol=datos.getRol();
-		
+			int nuevo_rol = datos.getRol();
 
-		repository.delete(usuario);
-		
-		usuario.setRol(nuevo_rol);
-		
-		repository.save(usuario);
-	
-		System.out.println("Se ha aceptado un usuario nuevo: "+datos.getUsuario());
-		log.info("Se ha aceptado un usuario nuevo: "+datos.getUsuario());
-		
-		return new ResponseEntity<>(HttpStatus.OK);
+			repository.delete(usuario);
+
+			usuario.setRol(nuevo_rol);
+
+			repository.save(usuario);
+
+			System.out.println("Se ha aceptado un usuario nuevo: " + datos.getUsuario());
+			log.info("Se ha aceptado un usuario nuevo: " + datos.getUsuario());
+
+			return new ResponseEntity<>(HttpStatus.OK);
 		}
 	}
+	
 
-    
-    //Borrar Usuario
-    @CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
-    @DeleteMapping("/{id}")
-    public ResponseEntity<HttpStatus> remove(@PathVariable("id") String id) {
-        Usuario usuario = repository.getUsuarioByIdentificacion(id);
-        if (usuario == null) {
-        	log.info("Se ha intentado eliminar un usuario no existente" + id);
-        	
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }else {
-        	repository.delete(usuario);
-        	
-        	log.info("Se ha borrado un usuario: "+ usuario.getIdentificacion());
-    		System.out.println(" Se ha borrado un usuario: "+usuario.getIdentificacion());
-    		
-        	return new ResponseEntity<>(HttpStatus.OK);
-        }
+	// Borrar Usuario
+	@Operation(summary="Borra un  usuario")
+	@CrossOrigin(origins = URLBASE) // CROSS origin para hacerlo seguro
+	@DeleteMapping("/{id}")
+	public ResponseEntity<HttpStatus> remove(@PathVariable("id") String id) {
+		Usuario usuario = repository.getUsuarioByIdentificacion(id);
+		if (usuario == null) {
+			log.info("Se ha intentado eliminar un usuario no existente" + id);
 
-    }
-    
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		} else {
+			repository.delete(usuario);
+
+			log.info("Se ha borrado un usuario: " + usuario.getIdentificacion());
+			System.out.println(" Se ha borrado un usuario: " + usuario.getIdentificacion());
+
+			return new ResponseEntity<>(HttpStatus.OK);
+		}
+
+	}
 
 }

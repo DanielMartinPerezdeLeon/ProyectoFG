@@ -3,7 +3,7 @@ package com.booking.entity;
 import java.io.Serializable;
 import java.util.Base64;
 
-
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 
@@ -14,23 +14,16 @@ public class Usuario implements Serializable{
 
 	
 	@Column(name = "nombre")
-	//@JsonProperty("nombre")
 	private String nombre;
 	
 	@Column(name = "apellidos")
-	//@JsonProperty("apellidos")
 	private String apellidos;
 	
 	@Id
 	@Column(name = "identificacion")
-	//@JsonProperty("identificación")
 	private String identificacion;	//valor con el que iniciar sesión
 	
-	//@Column(name = "contrasena")
-	//private String contrasena;	//contraseña final
-	
 	@Column(name = "contrasena")
-	//@JsonProperty("contrasena")
 	private String contrasena;	//Contraseña encriptada para no mostrar la original+ (Base64)
 	
 	@Column(name = "rol")

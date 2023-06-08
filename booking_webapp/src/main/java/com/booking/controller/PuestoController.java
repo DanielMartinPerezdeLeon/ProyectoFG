@@ -25,9 +25,13 @@ import com.booking.entity.DatosJSON.DatosCambiarEstado;
 import com.booking.entity.DatosJSON.DatosReserva;
 import com.booking.repository.PuestoRepository;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 @Controller
 @RestController
 @RequestMapping("/puestos")
+@Tag(name="Puestos")
 public class PuestoController {
 
 	@Autowired
@@ -37,7 +41,8 @@ public class PuestoController {
 	
 	private static final String URLBASE="http://localhost:8080";
 	
-
+	
+	@Operation(summary="Devuelve datos de todos los puestos")
 	@GetMapping(value = "/todos")
 	public ResponseEntity<List<Puesto>> getAll() {
 		List<Puesto> puestos = repository.findAll();
@@ -47,6 +52,7 @@ public class PuestoController {
 	}
 	
 	
+	@Operation(summary="Reserva un puesto dando una hora y un usuario")
 	@CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
 	@PostMapping(value = "/reservar")
 	public ResponseEntity<HttpStatus>reservar(@RequestBody DatosReserva datos) {
@@ -79,6 +85,7 @@ public class PuestoController {
 	}
 	
 	
+	@Operation(summary="Cambia el estado de un puesto (true/false)")
 	@CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
 	@PostMapping(value="/cambiar_estado")
 	public void cambiarEstado(@RequestBody DatosCambiarEstado datos) {
@@ -100,6 +107,7 @@ public class PuestoController {
 	}
 	
 	
+	@Operation(summary="Reinicia los horarios de un puesto")
 	@CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
 	@PostMapping(value="/reiniciar")
 	public ResponseEntity<HttpStatus> reiniciar(@RequestBody DatosReserva datos) {
@@ -123,7 +131,7 @@ public class PuestoController {
 		
 	}
 	
-	
+	@Operation(summary="Registra un nuevo puesto")
 	@CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
 	@PostMapping(value="/registrar")
 	public RedirectView  nuevoPuesto(@ModelAttribute("nuevo_puesto") Puesto puesto, Model model) {
@@ -154,6 +162,7 @@ public class PuestoController {
 	
 	
 	//Borrar puesto
+	@Operation(summary="Borra un puesto")
     @CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
     @DeleteMapping("/{id}")
     public ResponseEntity<HttpStatus> remove(@PathVariable("id") int id) {
@@ -186,6 +195,7 @@ public class PuestoController {
     }
     
     
+	@Operation(summary="Reinicia los horarios de todos los puestos")
     @CrossOrigin(origins = URLBASE) //CROSS origin para hacerlo seguro
     @PostMapping("/reiniciar_todos")
     public ResponseEntity<HttpStatus> reiniciarTodos() {
