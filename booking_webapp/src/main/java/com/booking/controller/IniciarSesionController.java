@@ -49,7 +49,7 @@ public class IniciarSesionController {
 			} else {
 				
 				//Si contraseña incorrecta
-				if(encontrado.ContrasenaDescodificada().equalsIgnoreCase(usuario.getContrasena())==false) {
+				if(!encontrado.ContrasenaDescodificada().equalsIgnoreCase(usuario.getContrasena())) {
 					System.out.println("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getIdentificacion()));
 					model.addAttribute("error","Contraseña incorrecta");
 					log.info("Se ha intentado logear en un usuario con una contraseña incorrecta: " + (usuario.getIdentificacion()));
@@ -77,11 +77,10 @@ public class IniciarSesionController {
 		//excepcion
 		} catch (Exception t) {
 			System.out.println(t.getMessage());
-			// TODO logger
 			model.addAttribute("error", "error grave, pongase en contacto con su administrador");
 			log.error("Error grave: "+usuario.getIdentificacion()+" - "+t.getMessage());
 			
-			return "error"; // TODO página /error
+			return "error";
 		}
 	}
 

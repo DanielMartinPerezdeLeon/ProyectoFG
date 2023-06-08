@@ -3,7 +3,6 @@ package com.booking.entity;
 import java.io.Serializable;
 import java.util.Base64;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.*;
 
@@ -13,6 +12,8 @@ import jakarta.persistence.*;
 public class Usuario implements Serializable{
 
 	
+	private static final long serialVersionUID = 1L;
+
 	@Column(name = "nombre")
 	private String nombre;
 	

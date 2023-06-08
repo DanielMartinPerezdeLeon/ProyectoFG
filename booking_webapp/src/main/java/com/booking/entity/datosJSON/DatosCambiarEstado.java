@@ -1,4 +1,4 @@
-package com.booking.entity.DatosJSON;
+package com.booking.entity.datosJSON;
 
 public class DatosCambiarEstado {
 	public int id;

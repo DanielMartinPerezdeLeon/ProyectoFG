@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.booking.entity.Puesto;
-import com.booking.entity.DatosJSON.DatosCambiarEstado;
-import com.booking.entity.DatosJSON.DatosReserva;
+import com.booking.entity.datosJSON.DatosCambiarEstado;
+import com.booking.entity.datosJSON.DatosReserva;
 import com.booking.repository.PuestoRepository;
 
 import io.swagger.v3.oas.annotations.Operation;

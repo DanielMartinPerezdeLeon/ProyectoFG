@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.booking.entity.Usuario;
-import com.booking.entity.DatosJSON.DatosCambiarRol;
+import com.booking.entity.datosJSON.DatosCambiarRol;
 import com.booking.repository.UsuarioRepository;
 
 import io.swagger.v3.oas.annotations.Operation;
