@@ -16,6 +16,7 @@
 	<description>Aplicación web booking (TFG)</description>
 	<properties>
 		<java.version>17</java.version>
+		<start-class>com.booking.BookingApp</start-class>
 	</properties>
 	<dependencies>
 		   <dependency>
@@ -129,12 +130,27 @@
 	</dependencies>
 	
 	
-	<packaging>war</packaging>
 
-	<build>
-		<plugins>
-			
-		</plugins>
-	</build>
+
+			<build>
+  <plugins>
+   <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+            <mainClass>com.booking.BookingApp</mainClass>
+            <layout>JAR</layout>
+        </configuration>
+        <executions>
+    <execution>
+        <goals>
+            <goal>repackage</goal>
+        </goals>
+    </execution>
+</executions>
+    </plugin>
+  </plugins>
+</build>
+
 
 </project>
