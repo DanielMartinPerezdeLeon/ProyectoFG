@@ -1,6 +1,22 @@
 Aquí se explica como y donde abrir el proyecto para ver/desarrollar su código, siguiendo el mismo entorno que se ha usado para el desarrollo original
 En principio, deberúa funcionar en cualquier IDE para Java, pero lo explicaré para eclipse en linux, ya que ahí es donde lo he desarrollado.
 
+# EJECUTAR EN IDE
+Si sigues e instalas todo lo que aparece abajo en esta guía, puedes hacer cambios y ejecutar rapida y directamente el proyecto como SpringBoot en Eclipse, para ello:
+  - Instala Eclipse y descarga los plugins que aparecen debajo
+  - Clona el proyecto en tu máquina (instala [git](https://www.digitalocean.com/community/tutorials/how-to-install-git-on-ubuntu-20-04-es))
+  - Clona el proyecto
+  ```console
+    git clone https://github.com/DanielMartinPerezdeLeon/ProyectoFG
+  ```
+  - Abre Eclipse y selecciona importar>proyecto existente de maven>selecciona booking_webapp
+  - Instala mysql y crea la BD como aparece abajo en esta guía.
+  - Haz cambios en el proyecto en Eclipse o cambia application.properties/pom.xml si fuese necesario
+  - En una consola (Yo suelo usar la propia consola de Eclipse) haz mvn clean compile install package
+  - Ahora haz click derecho en el proyecto > SpringBoot > Ejecutar como aplicacion SpringBoot
+  - Se te abrirá una consola enseñándote un log, si algo falla puedes verlo ahí
+  - Si todo va bien, puedes acceder con http://localhost:8080
+
 # EQUIPO
 Originalmente se ha usado una máquina virtual en VMware con una distribución de la ultima versión de mintmate.
 
