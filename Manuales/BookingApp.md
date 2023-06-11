@@ -58,9 +58,7 @@ Para la creación dinámica de los html se usa thymeleaf, un motor de creación 
 
 Con Spring MVC se guarda los datos minimos necesarios entre página y página (como el nombre de usuario) y los datos de sesión html, que dura 15 minutos.
 
-Hibernate es incorporado para asegurar la persistencia con la base de datos.
-
-Se una repositorios JPA para transformar directamente los datos de la BD en clases java.
+Se usa repositorios JPA para transformar directamente los datos de la BD en clases java, además lo hace persistente.
 
 Se usa OpenAPi para generar y configurar Swagger-UI, que explica detalladamente como usar la API REST.
 
@@ -68,6 +66,55 @@ Los usos más peligrosos de la API REST (como borrar un usuario) están protegid
 
 Se ha implementado un acción programada a las 11:59 que guarda los datos del día y los reinicia, borrando todas las horas reservadas.
 
+El front-end se ha hecho con Bootstrap.
+
+La aplicación ofrece un log completo que describe detalladamente que ocurre en la aplicación.
 
 
+
+
+#Tecnologías usadas:
+  - Java 17
+  - Maven
+  - Spring
+  - SpringBoot
+  - HTML5
+  - JavaScript
+  - Hibernate
+  - MySQL
+  - Docker
+  - AWS(E2C)
+  - Thymeleaf
+  - Visual Studio Code
+  - Bootstrap
+  - OpenApi - Swagger - SwaggerUI
+  - Java Persistence Api
+  - CSS
+  - JSON
+  - Spring Session 
+  - Spring MVC
+  - Lombok - Slf4j
+  - Bash
+  - Tomcat
+  - Sonarlint
+  - Markdown
+
+
+# Dificultades encontradas
+
+### Eclipse
+  Eclipse esta muy bien para controlar con mucho detalle proyectos grandes y facilita mucho algunas cosas; pero funciona FATAL, se cuelga cada rato, utiliza muchísimos recursos y no es nada fácil de aprender a usar. Creo que eclipse ha hecho que el desarrollo del proyecto sea mucho más lento. Si tuviese que empezar desde el principio, usaría IntellIJ, que es mucho mejor.
+  
+### Spring
+  Spring esta muy bien y encuentras muchísima información, todo sale suele funcionar siempre; pero como una cosa no te funcione, pasas horas (literalmente) intentando cambiarlo, al final la solución suele ser dar un rodeo e implementar algo de forma manual. Por ejemplo, he estado muchísimo intentando implementar Spring-Security, me rendí y tuve que hacer la seguridad de la aplicación de forma manual.
+  
+### Amazon Web Service
+  Conseguí usar AWS e incluso hostear la aplicación dentro de un servidor, pero el uso gratuíto es horrible, te dan CPU de sobra, pero0 apenas te dan unos kilobites de red, lo que hace imposible usar la aplicación en ella. Además, conseguí alojar la base de datos en un servicio de bases de datos de AWS, pero no te avisan en ningún lado que ese servicio cuesta dinero, casi me cobran 40€ sin avisar.
+  
+### Docker
+  Cuando tuve que abandonar AWS, decidí usar un docker para automatizar el hosteo de la aplicación, pero no funcionaba usando una red de docker, porque Spring odía las redes de docker, he intentado de todo, pero ha sido imposible, para poder hacer el docker he tenido que liarla, la historia más detallada está en la sección docker en el manual de desarrollo.
+  
+
+
+# Explicación API REST en la creación de uno de los html
 
