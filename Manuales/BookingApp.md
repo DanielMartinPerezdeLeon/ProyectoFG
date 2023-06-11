@@ -98,6 +98,8 @@ La aplicación ofrece un log completo que describe detalladamente que ocurre en 
   - Tomcat
   - Sonarlint
   - Markdown
+  - Git-GitKraken-GitHub
+  - JavaScript
 
 
 # Dificultades encontradas
