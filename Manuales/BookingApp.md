@@ -68,10 +68,12 @@ El proyecto se centra más en el back-end de la aplicación que en el front-end,
 
 La aplicación ofrece un log completo de log4j2 que describe detalladamente todo lo que ocurre en la aplicación.
 
+Se ha implementado algunos sistemas de seguridad, como encriptación de contraseñas, guardado de contraseñas en la BD encriptadas, no guardar información comprometida en memoria, protocolo CORS, comprobación de SQL injection, sesion HTML, mapeo y url's internas ocultas, ...
 
 
 
-#Tecnologías usadas:
+
+# Tecnologías usadas:
   - Java 17
   - Maven
   - Spring
@@ -116,5 +118,9 @@ Cuando decidí abandonar AWS, opté por utilizar Docker para automatizar el host
   
 
 
-# Explicación API REST en la creación de uno de los html
+# Ejemplo uso y explicación API REST
+
+Vamos a explicar como usar la API REST para reservar una hora en un puesto y como funciona por dentro:
+
+Si nos vamos 
 
