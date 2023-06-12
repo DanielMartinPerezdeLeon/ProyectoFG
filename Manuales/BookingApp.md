@@ -134,7 +134,49 @@ Cuando decidí abandonar AWS, opté por utilizar Docker para automatizar el host
 
 # Ejemplo uso y explicación API REST
 
-Vamos a explicar como usar la API REST para reservar una hora en un puesto y como funciona por dentro:
+Vamos a explicar al reservar una hora en un puesto como funcionaría por dentro la API REST para ese funcionamiento:
 
-Si nos vamos 
+Ya sea usando la página Web o la API REST por separado, podemos hacernos una idea general usando el Swagger de Booking [/swagger-ui/index.html]: 
+![Captura de pantalla 2023-06-12 204722](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/447141aa-3d8a-4b40-8ee4-ad63f44bbd44)
+
+Como podemos ver, para reservar una hora en un puesto debemos hacer una petición POST con el cuerpo JSON que aparece (puesto,hora,nombre usuario) al enlace [host/puestos/reservar], la API nos devolverá un HTTP 200 si todo ha salido bién.
+
+Veamos como funciona esa función de la API más en detalle:
+
+
+Cuando escribimos ese enlace en cualquier lado, SpringBoot lo detecta y se va a esta operación dentro de controller/PuestoController.java:
+
+![Captura de pantalla 2023-06-12 205241](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/22270682-8cd4-40e6-a874-65add4b30735)
+
+
+Esta clase, necesita como parámetro una clase DatosReserva, esta clase es el cuerpo JSON como clase JAVA:
+
+![Captura de pantalla 2023-06-12 210705](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/39fc9c8c-9817-4ab9-aa49-e8f74a392663)
+
+
+Como podemos ver, cuando se activa la operación, lo primero que se hace es llamar al repositorio de los puestos y usa el método personalizado autogenerado getPuestoByid(int id) con el ID del cuerpo JSON para obtener el puesto de la Base de datos automáticamente como clase Java (Como usamos JPA y Spring, no tenemos que escribir el método, spring detecta cual es  la clase ID y autogenera el contenido):
+
+![Captura de pantalla 2023-06-12 205650](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/b7764c42-5d5f-4de5-824d-84afb7469583)
+
+
+Al obtener los datos comprueba si el puesto existe; si no existe, nos devuelve un HTTP.NOT_FOUND, si existe, continua.
+
+Luego, coge el atributo del puesto donde se guardan las reservas, este atributo se guarda en java como una string, para guardarlo fácilmente, pero en realidad es un objeto JSON. Convertimos las reservas en una Array de JSON con horas y cogemos la que se ha pedido.
+
+La hora es un objeto JSON con dos claves, un int con la hora y un campo detalle, donde se guarda el nombre del usuario que ha reservado el puesto. En esa hora se actualiza el campo detalle para guarda el nombre del usuario pasado en el cuerpo JSON:
+
+![Captura de pantalla 2023-06-12 211612](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/15ac65ff-1269-4d7f-9443-5f0c727079e3)
+
+
+Una vez actualizado el JSON, se crea un puesto igual al obtenido, pero con el JSON de horario nuevo; se borra el anterior de la base de datos usando el repositorio y se sube el nuevo, simulando así una actualización.
+
+A continuación, el controlador muestra por consola (Si la hubiera) y por el log de Log4j2 creado que se ha hecho una reserva y el nombre del usuario, el puesto y la hora:
+
+![Captura de pantalla 2023-06-12 212127](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/963c89d6-e5ea-4905-9120-f6d2526988ec)
+
+
+Por último, se devuelve al navegador / herramienta que hayamos usado un HTTP OK (200), indicando que la operación se ha completado correctamente:
+
+
+![Captura de pantalla 2023-06-12 212732](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/98bfe44b-bf21-4568-8ac2-3a3d800aed15)
 
