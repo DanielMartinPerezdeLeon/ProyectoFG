@@ -10,7 +10,7 @@ Las primeras 2 semanas de prácticas en guadaltel solo estuvimos viendo cursos d
 
 Además, en uno de los proyectos en los que trabajé, se usaba una API REST como tecnología principal, así que me ha resultado muy útil para desenvolverme en mis prácticas.
 
-Si hubiese podido comenzar el proyecto más tarde, habría optado por desarrollar una aplicación con una tecnología más novedosa e interesante de mi experieancia en Guadalter, como la implementación de Inteligencia Artificial para detección y cálculo de propiedades de sismos utilizando datos en tiempo real).
+Si hubiese podido comenzar el proyecto más tarde, habría optado por desarrollar una aplicación con una tecnología más novedosa e interesante de mi experieancia en Guadaltel.
 
 
 # Explicación de la aplicación
