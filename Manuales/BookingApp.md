@@ -1,34 +1,32 @@
 # BookingWebApp
-Para el proyecto de final de grado me he decidido por hacer BookingWebApp, un servicio Web hecho con SpringBoot pensado para utilizarse como Aplicación de escritorio (explicado más abajo) en la que se simula el acceso a la web de una oficia para poder reservar
-horas en los puestos de trabajo de la misma. Para obtener los datos, se ha creado una API REST, la cual se puede usar desde cualquier herramienta, por lo que si se quisiera, se puede hacer uso de la aplicación sin el sitio web;  y si se hiciese
-otro programa que necesitase acceder a los datos de la misma Base de Datos, no ahce falta configurar nada, se puede usar la misma API.
+Para el proyecto de final de grado me he decidido por hacer BookingWebApp, un servicio Web basado en SpringBoot pensado para utilizarse como aplicación de escritorio en la que se accede a una web de oficina para poder reservar horas en los puestos de trabajo disponibles. Para obtener los datos, he creado una API REST que puede ser utilizada desde cualquier herramienta, lo que significa que la aplicación puede ser utilizada sin necesidad del sitio web.;  y si se hiciese otro programa que necesitase acceder a los datos de la misma Base de Datos, no hace falta configurar nada, se puede usar la misma API.
 
-Para instalar el servicio para hostearlo o desarrollar, puedes ver las otras guías en el proyecto.
+Para instalar el servicio y alojarlo o desarrollarlo, puedes consultar las otras guías disponibles en el proyecto.
 
-En este PDF solo se habla en detalles del programa, las tecnologías usadas, por qué se ha elegido esta proyecto, dificultades y explicación del código.
+Este documento se centra en los detalles del programa, las tecnologías utilizadas, la razón por la que se eligió este proyecto, las dificultades encontradas y una explicación del código.
 
 # ¿Por qué este proyecto?
-Las primeras 2 semanas de prácticas en guadaltel solo estuvimos viendo cursos de OpenWebinars, muchos de estos cursos se centraban en Maven, Jakarta, SpringBoot, Hibernate y API's; así que con esos cursos pensé que lo más adecuado era hacer un proyecto relacionado.
+Las primeras 2 semanas de prácticas en guadaltel solo estuvimos viendo cursos de OpenWebinars, muchos de estos cursos se centraban en Maven, Jakarta, SpringBoot, Hibernate y API's. Basandome en estos cursos pensé que lo más adecuado era hacer un proyecto relacionado con estas tecnologías.
 
-Después, en uno de los proyectos en los que trabajé se usaba una API REST como tecnología principal, así que me ha venido muy bien para manejarme en las prácticas.
+Además, en uno de los proyectos en los que trabajé, se usaba una API REST como tecnología principal, así que me ha resultado muy útil para desenvolverme en mis prácticas.
 
-Si hubiese podido empezar el proyecto más tarde hubiera hecho otro proyecto con una tecnología mas novedosa e interesante con lo aprendido en mi puesto en Guadaltel (Implementación de Inteligencia Artificial
-para deteccion y cálculo de propiedades de seismos usando datos en tiempo real).
+Si hubiese podido comenzar el proyecto más tarde, habría optado por desarrollar una aplicación con una tecnología más novedosa e interesante de mi experieancia en Guadalter, como la implementación de Inteligencia Artificial para detección y cálculo de propiedades de sismos utilizando datos en tiempo real).
 
 
 # Explicación de la aplicación
-Con BookingWebApp se puede acceder a un servicio web alojada en un servidor tomcat.
-En este servicio podremos, en un principio, registrarnos en la aplicación o iniciar sesion:
-- Si nos registramos, no podremos acceder dentro hasta que un manager/admin nos permita el acceso
-- Si iniciamos sesión, podremos acceder a la página principal, además podremos acceder a diferentes páginas según nuestro rol de permisos:
-  - Si somos usuarios, solo podremos acceder a reservar horarios de equipos.
+BookingWebApp se permite acceder a un servicio web alojado en un servidor tomcat.
+
+En este servicio inicialmente podremos registrarnos en la aplicación o iniciar sesion:
+
+- Si nos registramos, no podremos acceder hasta que un manager/admin nos permita el acceso.
+- Si iniciamos sesión, podremos acceder a la página principal, además podremos acceder a diferentes funciones según nuestro rol de permisos:
+  - Si somos usuarios, solo podremos acceder a la reserva de horarios en los equipos disponibles.
   - Si somos manager, tambíen podremos acceder a otras dos páginas, una para gestionar usuarios y otra para gestionar los equipos.
   - Si somos administradores, además, podremos acceder a la página de administración, en la que podremos borrar los horarios, borrar un puesto o borrar un usuario.
 
-Los datos que la aplicación de la base de datos se obtienen mediante una API REST, de uso universal, lo que nos permite la implantación rápida en otros servicios. Podremos ver como usar la API REST accediendo al Swagger del proyecto,
-host/swagger-ui/index.html
+Los datos de la aplicación se obtienen de una base de datos mediante una API REST, que es de uso universal, lo que permite una fácil integración en otros servicios. Para obtener más información sobre cómo utilizar la API REST, se puede acceder al Swagger del proyecto a través de la siguiente URL: host/swagger-ui/index.html.
 
-La aplicación guarda una vez al día, a las 23:59 (de la hora donde esté alojada) los puestos y sus horarios y después los reinicia. Se puede acceder en cualquier momento a esos datos usando la API REST.
+La aplicación guarda los datos de los puestos y sus horarios una vez al día a las 23:59 (hora del servidor) y luego los reinicia. Los datos pueden ser accedidos en cualquier momento mediante la API REST.
 
 
 
@@ -36,39 +34,39 @@ La aplicación guarda una vez al día, a las 23:59 (de la hora donde esté aloja
 
 ![DiagramaBookingBIen drawio](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/5c74c312-1ec9-4272-b638-88348412c674)
 
-Está construida con SpringBoot, que se encarga de crear el pom del proyecto y te crea automáticamente Beans de Spring sin tener que configurarlos, básicamente se usa para poder crear proyectos Spring teniendo que configurar lo más mínimo posible.
+La aplicación ha sido construida utilizando Spring Boot, que se encarga de crear el archivo POM del proyecto y genera automáticamente los beans de Spring sin necesidad de configuración adicional. Esto permite crear proyectos de Spring con una configuración mínima.
 
-La aplicación ha sido dividida en los siguientes paquetes:
-  - Configuration: Configuraciones de la aplicación, al final solo queda la de OpenApi
+La aplicación se ha dividido en los siguientes paquetes:
+  - Configuration: Configuraciones de la aplicación, solo ha quedado la de OpenAPI.
   - Controller: Controladores para la API de mapeo y la REST API.
-  - Entity: Entidades de la base de datos y de los datos de los JSON.
+  - Entity: Entidades de la base de datos y de los cuerpos usados en los JSON.
   - Repository: Repositorios para la descarga y subida automática de datos de la Base de Datos.
-  - Scheduler: Acción diaria para guardar los datos de cada día.
+  - Scheduler: Contiene la acción programada diaria para guardar los datos de cada día.
   - DailySaves: Donde se guardan los datos de cada día.
-  - Static: Imágenes de la aplicación y los JS
-  - Templates: Las plantillas de thymeleaf para generar los html dinámicamente. 
-  - application.properties: archivo de configuración de spring.
+  - Static: Imágenes de la aplicación y los JS que se usa en los html.
+  - Templates: Las plantillas de thymeleaf para generar los HTML dinámicamente. 
+  - application.properties: Archivo de configuración de spring.
 
-La gracia es que la mayoría de datos que se piden a la base de datos es mediante una API REST que se puede usar desde cualquier lado, si se accede al Swagger de la aplicación 
+La mayoría de los datos obtenidos de la base de datos se obtienen a través de una API REST que puede ser utilizada desde cualquier lugar. Se puede acceder al Swagger de la aplicación para obtener información detallada sobre cómo utilizar la API. El uso de una API REST permite que se pueda acceder a los servicios de la web sin necesidad de acceder a la misma.
 
-El metodo en el que funciona es usando SpringBoot, que ejecuta automáticamente el servidor tomcat con la aplicación alojada, la aplicación se conectará con una base de datos mySQL donde recibir y guardar información y
-usará dos APIS, una REST para leer/es los datos recibidos como JSON y poder modificarlos facil y rápidamente; y otra API para las redirecciones y métodos como iniciar sesion/registrarse.
+La aplicación funciona mediante Spring Boot, que automáticamente ejecuta el servidor Tomcat con la aplicación alojada. La aplicación se conecta a una base de datos MySQL para recibir y almacenar información, y utiliza dos APIs: una API REST para leer y modificar los datos en formato JSON, y otra API para las redirecciones y métodos como inicio de sesión y registro.
 
-Para la creación dinámica de los html se usa thymeleaf, un motor de creación de html que usa java, los datos que usa thymeleaf también vienen de la API REST. Para acceder a la API dentro de las páginas creadas se usa JS.
+Para la generación dinámica de archivos HTML, se utiliza Thymeleaf, un motor de creación de HTML que utiliza Java. Los datos utilizados por Thymeleaf también provienen de la API REST. Para acceder a la API dentro de las páginas creadas, se utiliza JavaScript.
 
-Con Spring MVC se guarda los datos minimos necesarios entre página y página (como el nombre de usuario) y los datos de sesión html, que dura 15 minutos.
+Spring MVC se utiliza para almacenar los datos mínimos necesarios entre páginas, como el nombre de usuario, y los datos de sesión HTML, que tienen una duración de 15 minutos.
 
-Se usa repositorios JPA para transformar directamente los datos de la BD en clases java, además lo hace persistente.
+Se utilizan los repositorios JPA para transformar directamente los datos de la base de datos en clases Java e incluye persistencia.
 
-Se usa OpenAPi para generar y configurar Swagger-UI, que explica detalladamente como usar la API REST.
+Se utiliza OpenAPI para generar y configurar Swagger-UI, que proporciona una descripción detallada de cómo utilizar la API REST.
 
-Los usos más peligrosos de la API REST (como borrar un usuario) están protegidas usando un protocolo CORS configurado para que solo puedan ser usadas con métodos POST/Delete desde la misma aplicación y se debe usar un cuerpo JSON en específico.
+Se han implementado medidas de seguridad para las acciones más peligrosas de la API REST, como la eliminación de un usuario. Estas acciones están protegidas mediante un protocolo CORS configurado para permitir solo solicitudes POST y DELETE desde la propia aplicación, y requieren un cuerpo JSON específico.
 
-Se ha implementado un acción programada a las 11:59 que guarda los datos del día y los reinicia, borrando todas las horas reservadas.
+Se ha programado una tarea automática a las 11:59 que guarda los datos del día y los reinicia, eliminando todas las horas reservadas.
 
-El front-end se ha hecho con Bootstrap.
+El proyecto se centra más en el back-end de la aplicación que en el front-end, por lo que se ha usado Bootstrap para crear el diseño de los HTML.
 
-La aplicación ofrece un log completo que describe detalladamente que ocurre en la aplicación.
+
+La aplicación ofrece un log completo de log4j2 que describe detalladamente todo lo que ocurre en la aplicación.
 
 
 
@@ -105,16 +103,16 @@ La aplicación ofrece un log completo que describe detalladamente que ocurre en 
 # Dificultades encontradas
 
 ### Eclipse
-  Eclipse esta muy bien para controlar con mucho detalle proyectos grandes y facilita mucho algunas cosas; pero funciona FATAL, se cuelga cada rato, utiliza muchísimos recursos y no es nada fácil de aprender a usar. Creo que eclipse ha hecho que el desarrollo del proyecto sea mucho más lento. Si tuviese que empezar desde el principio, usaría IntellIJ, que es mucho mejor.
+Eclipse es una herramienta muy completa para controlar proyectos grandes y facilita muchas tareas, pero tiene un rendimiento deficiente. Se bloquea con frecuencia, consume muchos recursos y no es fácil de aprender a utilizar. Si tuviera que empezar desde el principio, utilizaría IntelliJ, que considero que es una opción mejor.
   
 ### Spring
-  Spring esta muy bien y encuentras muchísima información, todo sale suele funcionar siempre; pero como una cosa no te funcione, pasas horas (literalmente) intentando cambiarlo, al final la solución suele ser dar un rodeo e implementar algo de forma manual. Por ejemplo, he estado muchísimo intentando implementar Spring-Security, me rendí y tuve que hacer la seguridad de la aplicación de forma manual.
+Spring es una tecnología muy útil y se encuentra mucha información disponible. En general, funciona bien y la mayoría de las veces las cosas funcionan como se esperan. Sin embargo, cuando algo no funciona, puede llevar muchas horas intentar solucionarlo, no habrá información en internet util para solucionarlo y no habrá documentación oficial sobre el caso; la mayoría de veces hay que trabajar implementando manualmente servicios. Uno de estos caso, la implementación de Spring Security falla y, tras mucho tiempo perdido intentando solucionarlo, finalmente tuve que abordar la seguridad de la aplicación de forma manual.
   
 ### Amazon Web Service
-  Conseguí usar AWS e incluso hostear la aplicación dentro de un servidor, pero el uso gratuíto es horrible, te dan CPU de sobra, pero0 apenas te dan unos kilobites de red, lo que hace imposible usar la aplicación en ella. Además, conseguí alojar la base de datos en un servicio de bases de datos de AWS, pero no te avisan en ningún lado que ese servicio cuesta dinero, casi me cobran 40€ sin avisar.
+ Logré utilizar AWS y alojar la aplicación en un servidor E2C, pero la opción gratuita tiene limitaciones significativas. Aunque proporcionan suficiente capacidad de procesamiento (CPU), el límite de ancho de banda es muy bajo, apenas unos KiloBytes, lo que hace que sea prácticamente imposible utilizar la aplicación en esa plataforma. Además, conseguí alojar la base de datos en un servicio de bases de datos de AWS (RDS), no se me advirtió que se aplicaban cargos económicos, lo que resultó en un cargo que al final conseguí evitar de 40€. En ningún momento se avisa de si vas a usar un servicio de pago, he tenido que abandonar el uso de AWS para evitar más cobros inesperados.
   
 ### Docker
-  Cuando tuve que abandonar AWS, decidí usar un docker para automatizar el hosteo de la aplicación, pero no funcionaba usando una red de docker, porque Spring odía las redes de docker, he intentado de todo, pero ha sido imposible, para poder hacer el docker he tenido que liarla, la historia más detallada está en la sección docker en el manual de desarrollo.
+Cuando decidí abandonar AWS, opté por utilizar Docker para automatizar el hosting de la aplicación. Sin embargo, tuve dificultades al intentar usar una red de Docker, ya que Spring tiene problemas con las redes de Docker. Intenté muchas soluciones, pero fue imposible hacer que funcionara correctamente. Para poder utilizar Docker, tuve que encontrar una solución alternativa. Puedes encontrar más detalles sobre esto en la sección de Docker del manual de desarrollo.
   
 
 
