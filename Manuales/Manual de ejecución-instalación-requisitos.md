@@ -2,7 +2,7 @@
 
 
 # Descripción
-  Se trata de un Servicio Web construído con Java 17 y el FrameWork SpringBoot para simular la gestión y reserva de horarios de distintos puestos de trabajo en una oficina.
+  Se trata de un Servicio Web construído con Java 17 y el FrameWork SpringBoot para simular la gestión y reserva de horarios de distintos puestos de trabajo en una oficina utilizando una API REST.
 
 # Requisitos
 
