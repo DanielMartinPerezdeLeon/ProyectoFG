@@ -70,7 +70,7 @@ La aplicación ofrece un log completo de log4j2 que describe detalladamente todo
 Se ha implementado algunos sistemas de seguridad, como encriptación de contraseñas, guardado de contraseñas en la BD encriptadas, no guardar información comprometida en memoria, protocolo CORS, comprobación de SQL injection, sesion HTML, mapeo y url's internas ocultas, ...
 
 
-# # Algunas imágenes de la Aplicación
+## Algunas imágenes de la Aplicación
 
 ![Captura de pantalla 2023-06-12 203627](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/afeb3185-b4ad-4480-aa99-0ff9888b39ea)
 
@@ -129,6 +129,9 @@ Spring es una tecnología muy útil y se encuentra mucha información disponible
   
 ### Docker
 Cuando decidí abandonar AWS, opté por utilizar Docker para automatizar el hosting de la aplicación. Sin embargo, tuve dificultades al intentar usar una red de Docker, ya que Spring tiene problemas con las redes de Docker. Intenté muchas soluciones, pero fue imposible hacer que funcionara correctamente. Para poder utilizar Docker, tuve que encontrar una solución alternativa. Puedes encontrar más detalles sobre esto en la sección de Docker del manual de desarrollo.
+
+### Convertir en Aplicación de Escritorio
+Esta fue lo último que hice en el proyecto antes de la documentación. El problema es que ya no me quedaba tiempo, asi que no pude hacerlo completamente. Tenia planeado usar una herramienta como [Electron](https://www.electronjs.org/), pero la falta de tiempo y que estas herramientas no son tan inmediatas como creía hizo que usase directamente la extensión de Google Chrome. Esto me ha servido y funciona correctamente, el problema es que para esta aplicación se necesita una dirección de hosteo específica y que no cambie; como tuve que abandonar el servidor E2C de AWS, he tenido que usar mi propio portatil/cualquier-pc como servidor donde hostear la web y solo en una red local; como la IP de estas máquinas se genera de manera automática en cada red, no se puede tener la aplicación ya preparada para descargar, sin embargo, al poder crearse de manera inmediata, se puede hacer en  el mismo momento.
   
 
 
