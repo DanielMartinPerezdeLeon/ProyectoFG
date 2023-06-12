@@ -29,7 +29,6 @@ Los datos de la aplicación se obtienen de una base de datos mediante una API RE
 La aplicación guarda los datos de los puestos y sus horarios una vez al día a las 23:59 (hora del servidor) y luego los reinicia. Los datos pueden ser accedidos en cualquier momento mediante la API REST.
 
 
-
 # Detalles de la aplicación
 
 ![DiagramaBookingBIen drawio](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/5c74c312-1ec9-4272-b638-88348412c674)
@@ -71,6 +70,21 @@ La aplicación ofrece un log completo de log4j2 que describe detalladamente todo
 Se ha implementado algunos sistemas de seguridad, como encriptación de contraseñas, guardado de contraseñas en la BD encriptadas, no guardar información comprometida en memoria, protocolo CORS, comprobación de SQL injection, sesion HTML, mapeo y url's internas ocultas, ...
 
 
+# # Algunas imágenes de la Aplicación
+
+![Captura de pantalla 2023-06-12 203627](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/afeb3185-b4ad-4480-aa99-0ff9888b39ea)
+
+
+![Captura de pantalla 2023-06-12 203709](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/97e6bf77-5fee-4d33-9cd6-02d3dd39c92e)
+
+
+![Captura de pantalla 2023-06-12 203757](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/d8f1f981-3e54-41c5-9126-ec6001272660)
+
+
+![Captura de pantalla 2023-06-12 203834](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/8e210eae-54d1-4ff5-84a5-1a37193a511a)
+
+
+![Captura de pantalla 2023-06-12 203944](https://github.com/DanielMartinPerezdeLeon/ProyectoFG/assets/114756164/b37671fa-a6cd-4a16-8515-47efba0d8ccf)
 
 
 # Tecnologías usadas:
