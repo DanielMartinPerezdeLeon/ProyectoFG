@@ -9,7 +9,7 @@
 ## Hardware
   Para poder usar la app-web, debe ser alojada en un servidor/ordenador que cumpla una de estas dos características:
 
-  ### Un ordenador con una distribución cualquiera de Linux que cumple los requisitos mínimos para tener docker:
+  ### Ordenador con una distribución cualquiera de Linux que cumpla los requisitos mínimos para tener docker:
   - 64-bit kernel and CPU support for virtualization.
   - KVM virtualization support.
   - QEMU must be version 5.2 or newer.
@@ -18,7 +18,7 @@
   - Enable configuring ID mapping in user namespaces, see File sharing.
 
 
-  ### Un ordenador con una distribución de Windows 10/11 que cumple estos requisitos mínimos:
+  ### Ordenador con una distribución de Windows 10/11 que cumple estos requisitos mínimos:
   - Enable the WSL 2 feature on Windows.
   - 64-bit processor with Second Level Address Translation (SLAT)
   - 4GB system RAM
@@ -46,18 +46,18 @@
 
 # Guia de instalación
  ### Linux:
-  - En una consola pondremos los siguientes comandos (quizás necesites permisos de administrados [sudo] delante de todos los comandos).
+  - En una consola, ejecuta los siguientes comandos (quizás necesites permisos de administrados [sudo] antes de cada comando).
   ```console
   docker pull damarpele/booking:latest
   docker run damarpele/booking:latest
   ```
-  -Ya podremos acceder desde ese equipo con http://localhost:8080 ó desde otro equipo usando la ip de la máquina y el puerto 8080
+  -Una vez hecho esto, podrás acceder desde ese equipo con http://localhost:8080 ó desde otro equipo en la misma red usando la IP del equipo y el puerto 8080.
 
   ### Windows 10/11:
   - Abrir Docker Deskpot y esperar a que cargue.
-  - Nos dirigimos a images.
+  - Ir a la sección "Images".
   - Haremos click en la barra de busqueda en la parte superior de la ventana o pulsamos Ctrl+k.
-  - En el buscador ponemos damarpele/booking, hacemos click en la imagen que nos saldrá, en tag seleccionamos latest y le damos a pull.
+  - En el buscador escribimos damarpele/booking, hacemos click en la imagen que nos saldrá, en tag seleccionamos latest y hacemos click en pull.
   - Esperamos a que se descargue la imagen (puede tardar varios minutos).
   - En images ahora nos saldrá la imagen descargada, hacemos click en el botón run:arrow_forward:
   - Nos saldrá una nueva ventana, en la que tendremos que abrir la pestaña  Optional Settings.
@@ -65,12 +65,17 @@
   - Le damos a run, esperamos a que cargue y ya podremos acceder al servicio desde ese equipo con http://localhost:8080 ó desde otro equipo usando la ip de la máquina y el puerto 8080
 
 # Guia de ejecución
-- Puesto a que tenemos el servicio alojado desde docker, ya estará listo para usarse desde el puerto 8080 de la máquina donde esté el contenedor corriendo.
-- Si sospechas que ha habido un error en el contenedor, puede verlo desde Docker Deskpot abriendo el contenedor desde la ventana Containers ó desde la consola de linux:
+Una vez que el servicio esté alojado en Docker, estará listo para ser utilizado a través del puerto 8080 del equipo donde se encuentra el contenedor en ejecución.
+
+Si sospechas que ha ocurrido un error en el contenedor, puedes verificarlo desde Docker Desktop abriendo el contenedor en la sección "Containers" o desde la consola de Linux ejecutando el siguiente comando:
+
+
 ```console
   docker logs [nombre del contenedor]
   ```
-- También puedes abrir directamente el servicio accediendo dentro del contenedor en Docker Deskpot en la misma pestaá en terminal ó desde la consola de linux:
+También puedes acceder directamente al servicio dentro del contenedor en Docker Desktop en la misma pestaña "Terminal" o desde la consola de Linux ejecutando el siguiente comando:
+
+
 ```console
   docker exec -it [nombre del contenedor] /bin/bash
   ```
